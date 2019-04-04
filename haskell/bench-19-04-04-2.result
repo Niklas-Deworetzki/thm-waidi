@@ -1,0 +1,22 @@
+benchmarking fib/10
+time                 422.1 ns   (420.5 ns .. 425.0 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 425.0 ns   (423.8 ns .. 427.3 ns)
+std dev              8.531 ns   (5.079 ns .. 15.42 ns)
+variance introduced by outliers: 29% (moderately inflated)
+
+benchmarking fib/15
+time                 4.694 μs   (4.626 μs .. 4.755 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 4.577 μs   (4.564 μs .. 4.594 μs)
+std dev              76.60 ns   (59.72 ns .. 108.6 ns)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking fib/20
+time                 50.68 μs   (50.25 μs .. 51.35 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 53.88 μs   (53.28 μs .. 54.40 μs)
+std dev              2.787 μs   (2.592 μs .. 2.950 μs)
+variance introduced by outliers: 64% (severely inflated)
+
+benchmarking fib/25

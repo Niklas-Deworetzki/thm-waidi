@@ -1,0 +1,176 @@
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=42937:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 60 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 10)
+
+# Run progress: 0.00% complete, ETA 00:29:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.281 us/op
+# Warmup Iteration   2: 0.270 us/op
+# Warmup Iteration   3: 0.268 us/op
+# Warmup Iteration   4: 0.268 us/op
+# Warmup Iteration   5: 0.267 us/op
+Iteration   1: 0.269 us/op
+Iteration   2: 0.268 us/op
+Iteration   3: 0.267 us/op
+Iteration   4: 0.268 us/op
+Iteration   5: 0.268 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  0.268 ±(99.9%) 0.002 us/op [Average]
+  (min, avg, max) = (0.267, 0.268, 0.269), stdev = 0.001
+  CI (99.9%): [0.266, 0.270] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=42937:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 60 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 15)
+
+# Run progress: 20.00% complete, ETA 00:23:23
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.944 us/op
+# Warmup Iteration   2: 2.951 us/op
+# Warmup Iteration   3: 2.943 us/op
+# Warmup Iteration   4: 2.942 us/op
+# Warmup Iteration   5: 2.933 us/op
+Iteration   1: 2.939 us/op
+Iteration   2: 2.937 us/op
+Iteration   3: 2.943 us/op
+Iteration   4: 2.941 us/op
+Iteration   5: 2.945 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  2.941 ±(99.9%) 0.013 us/op [Average]
+  (min, avg, max) = (2.937, 2.941, 2.945), stdev = 0.003
+  CI (99.9%): [2.928, 2.954] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=42937:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 60 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 20)
+
+# Run progress: 40.00% complete, ETA 00:17:32
+# Fork: 1 of 1
+# Warmup Iteration   1: 32.719 us/op
+# Warmup Iteration   2: 32.631 us/op
+# Warmup Iteration   3: 32.610 us/op
+# Warmup Iteration   4: 32.575 us/op
+# Warmup Iteration   5: 32.616 us/op
+Iteration   1: 32.697 us/op
+Iteration   2: 32.669 us/op
+Iteration   3: 32.909 us/op
+Iteration   4: 32.761 us/op
+Iteration   5: 32.724 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  32.752 ±(99.9%) 0.362 us/op [Average]
+  (min, avg, max) = (32.669, 32.752, 32.909), stdev = 0.094
+  CI (99.9%): [32.390, 33.114] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=42937:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 60 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 25)
+
+# Run progress: 60.00% complete, ETA 00:11:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 361.404 us/op
+# Warmup Iteration   2: 361.582 us/op
+# Warmup Iteration   3: 362.206 us/op
+# Warmup Iteration   4: 361.696 us/op
+# Warmup Iteration   5: 361.030 us/op
+Iteration   1: 361.703 us/op
+Iteration   2: 363.698 us/op
+Iteration   3: 362.373 us/op
+Iteration   4: 361.833 us/op
+Iteration   5: 362.818 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  362.485 ±(99.9%) 3.124 us/op [Average]
+  (min, avg, max) = (361.703, 362.485, 363.698), stdev = 0.811
+  CI (99.9%): [359.361, 365.609] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=42937:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 60 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 30)
+
+# Run progress: 80.00% complete, ETA 00:05:50
+# Fork: 1 of 1
+# Warmup Iteration   1: 4027.965 us/op
+# Warmup Iteration   2: 3998.671 us/op
+# Warmup Iteration   3: 4006.852 us/op
+# Warmup Iteration   4: 4019.754 us/op
+# Warmup Iteration   5: 3996.024 us/op
+Iteration   1: 4006.491 us/op
+Iteration   2: 4012.777 us/op
+Iteration   3: 4003.018 us/op
+Iteration   4: 4005.879 us/op
+Iteration   5: 4003.280 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  4006.289 ±(99.9%) 15.167 us/op [Average]
+  (min, avg, max) = (4003.018, 4006.289, 4012.777), stdev = 3.939
+  CI (99.9%): [3991.122, 4021.456] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:29:13
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark  (N)  Mode  Cnt     Score    Error  Units
+Test.test   10  avgt    5     0.268 ±  0.002  us/op
+Test.test   15  avgt    5     2.941 ±  0.013  us/op
+Test.test   20  avgt    5    32.752 ±  0.362  us/op
+Test.test   25  avgt    5   362.485 ±  3.124  us/op
+Test.test   30  avgt    5  4006.289 ± 15.167  us/op
+
+Process finished with exit code 0
