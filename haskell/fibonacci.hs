@@ -1,8 +1,13 @@
 import Criterion.Main
 
 fib :: Int -> Int
-fib n = if n <= 1
-        then n
-        else fib (n-1) + fib (n-2)
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
 
-main = defaultMain [bgroup "fib" [ bench (show n) $ nf fib n | n <- [10, 15, 20, 25, 30]]]
+main = defaultMain [bgroup "fib" [ bench "10" $ whnf fib 10
+                                 , bench "15" $ whnf fib 15
+                                 , bench "20" $ whnf fib 20
+                                 , bench "25" $ whnf fib 25
+                                 , bench "30" $ whnf fib 30
+                                 ]]
