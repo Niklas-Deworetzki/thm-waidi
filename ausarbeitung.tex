@@ -1,7 +1,5 @@
-%  ----------------------------------------------------------------------------
-% Dieses Dokument ist eine Übung im Kurs "Wissenschaftliches
-% Arbeiten in der Informatik":
-%
+% ----------------------------------------------------------------------------
+% 
 % ----------------------------------------------------------------------------
 
 \documentclass[11pt, parskip=half]{scrartcl}       % KOMA-Skript für Artikel
@@ -36,30 +34,31 @@
 
 \begin{document}
 
-\section{Wahl der Sprachen}
+% TODO Aktuell?
+\section{Moderne Ausführungsmodelle}
 
-Im Folgenden wird die Wahl der Programmiersprachen diskutiert, die in diesem Dokument verglichen werden.
-Hierbei wird versucht, ein möglichst breites Spektrum an verschiedenen Ausführungsmodellen abzudecken.
-
-Es gibt verschiedene Ausführungsmodelle, die es ermöglichen ein Programm auszuführen. Jedes hat dabei eigene Vor- und Nachteile.
+Im Folgenden werden verschiedene Ausführungsmodelle diskutiert.
+Ein Ausführungsmodell beschreibt, wie ein Programm aus einer Quellsprache verarbeitet werden muss, um es ausführen zu können.
+Der genaue Ablauf um ein Programm aus einer Quellsprache in eine ausführbare Zielsprache zu transformieren, hängt jedoch stark von der entsprechenden Quellsprache ab.
+% TODO mehr text? Wie sage ich, dass das nur ein allgemeines Beispiel ist und im einzelnen anders aussehen kann?
 
 \subsection{Ausführbarer Maschinencode}
 
-Das erste Ausführungsmodell ist Maschinencode in direkt ausführbaren Dateien.
-Programmiersprachen wie C, C++ oder auch Haskell werden normalerweise direkt zu ausführbaren Dateien kompiliert.
+Das erste hier diskutierte Ausführungsmodell ist Maschinencode, welcher in direkt ausführbaren Dateien gespeichert wird.
+Programmiersprachen wie C, C++ oder auch Haskell werden normalerweise zu einer einzigen ausführbaren Datei kompiliert, die das ursprüngliche Programm in Form von plattformabhängigen Maschinencode enthält.
 
-Dieses Modell ermöglicht ein sehr effizientes Ausführen, da ein Programm direkt gestartet werden kann, ohne auf abhängige Prozesse oder Umgebungen zu warten.
-Zudem ermöglicht der architekturnahe Maschinencode die effiziente Nutzung der zu Verfügung stehenden Ressourcen, wodurch direkt kompilierte Programme normalerweise sehr schnell sind und wenig Arbeitsspeicher benötigen.
+Dieses Modell ermöglicht ein sehr effizientes Ausführen, da ein Programm direkt gestartet werden kann, ohne auf abhängige Prozesse oder Umgebungen warten zu müssen.
+Zudem ermöglicht der Maschinencode die effiziente Nutzung der zu Verfügung stehenden Ressourcen auf der jeweiligen Plattform, wodurch kompilierte Programme normalerweise sehr schnell sind und wenig Arbeitsspeicher benötigen.
 Durch das Kompilieren wird Code mehreren Analyseschritten unterzogen, die zum einen Optimierungen ermöglichen, was sowohl Performance als auch Ressourcenverbrauch zusätzlich verbesern kann.
 Andererseits ist es durch diese Analyseschritte auch möglich, Programmierfehler vorab zu erkennen.
-So kann überprüft werden, ob die Parameteranzahl von aufgerufenen Routinen im Code korrekt ist, es kann auf falsch geschriebene oder unbenutzte Bezeichner hingewiesen werden und durch Analyse des Programmflusses ist es möglich, Rechenfehler wie die Division durch 0 oder illegale Arrayzugriffe vorab zu erkennen.
+So kann überprüft werden, ob die Parameteranzahl von aufgerufenen Routinen im Code korrekt ist, es kann auf falsch geschriebene oder unbenutzte Bezeichner hingewiesen werden und durch Analyse des Programmflusses ist es möglich, Rechenfehler oder illegale Indexzugriffe vorab zu erkennen.
 
 
 Als Nachteil bei diesem Modell muss jedoch der verhältnismäßig hohe Aufwand bei der Codeerzeugung beachtet werden.
-Das Backend eines Compilers für eine kompilierte Sprache muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenespezifischen Prozessoranweisungen auch nutzen zu können.
+Das Backend eines Compilers für eine kompilierte Sprache muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenspezifischen Prozessoranweisungen auch nutzen zu können.
 Ein anderer Nachteil wird bei der Softwareentwicklung deutlich.
-Bei Änderungen muss immer zuerst neu kompiliert werden, sodass die Entwicklung verlangsamt wird.
-Zudem ist es schwerer, Fehler zu debuggen, da nur Maschinencode vorliegt, dessen Struktur sehr unterschiedlich zum ursprünglichen Quellcode sein kann.
+Änderungen müssen immer zuerst neu kompiliert werden, sodass die Entwicklung verlangsamt wird.
+Zudem ist es schwerer, Fehler zu debuggen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur der Anweisungen sehr unterschiedlich zum Quellcode sein kann.
 Zudem wird die Verfügbarkeit einiger höherer Sprachfeatures eingeschränkt.
 Beispielsweise wird die Introspektion ohne eine Laufzeitumgebung nur dadurch möglich, dass zu allen Instanzen bereits zur Kompilierzeit Typinformationen abgelegt werden.
 In C++ können für diesen Zweck Präprozessoranweisungen verwendet werden, mit deren Hilfe der Programmierer im Quellcode die benötigten Zusatzinformationen über Typen und Namen der Instanzvariablen selbst in entsprechende Strukturen eintragen kann.
@@ -106,24 +105,28 @@ Zudem muss die komplette virtuelle Maschine zu Programmstart initialisiert werde
 % TODO Finden eines gemeinsamen Nenners  
 % TODO Ausblick? Was vermutlich am schnellsten, was eher nicht?
 
+\section{Auswahl der Programmiersprachen}
+
+Um einen Vergleich zwischen den vorher genannten Ausführungsmodellen möglich zu machen, müssen nun Programmiersprachen zu jedem Modell gewählt werden, die mit vergleichbaren Konstrukten umgehen können und ähnliche Unterstützung für Features geben.
+Zusätzlich zu Ausführungsmodellen gibt es verschiedene Paradigmen, die unterschiedliche Arten der Problemlösung mit sich führen.
+Eine prozedurale Sprache wird Sprachkonstrukte für Schleifen bieten, mit denen über Datenstrukturen verarbeitet werden können, während eine funktionale Sprache für solche Aufgaben Pattern-Matching und Rekursion bieten wird.
+Auch die Auswahl an verschiedenen Datentypen muss berücksichtigt werden.
+In den meisten Programmiersprachen gibt es für Ganzzahlen Datentypen in verschiedenen Größen, wobei der Rechenaufwand bei Operationen auf 64-Bit Zahlen größer und daher nicht direkt verlgeichbar mit dem auf 8-Bit Zahlen ist. Bei Gleitkommazahlen tritt eine ähnliche Problematik auf.
+
+All dies muss Berücksichtigt werden bei der folgenden Wahl der Programmiersprachen zu jedem Ausführungsmodell. 
+
 \subsection{Haskell}
 
-Haskell ist eine kompilierte Sprache, welche in mehreren Schritten zu nativem Maschinencode kompiliert wird.
-Da Haskell stark typisiert ist, wird in den ersten Analyseschritten versucht, möglichst viel Information zu dem unterliegenden Quellcode zu erfassen.
-Dies geschieht entweder durch die direkte Analyse des Quellcodes oder durch Typinferenz, bei unbekannten oder nicht definierten Typen.
-Nachdem die Analyse abgeschlossen ist, muss der Haskell-Quellcode transformiert werden, um anschließend Maschinencode erzeugen zu können.
-Da Haskell eine funktionale Sprache ist, sind diese Transformationen komplexer als bei einfachen, imperativen Sprachen.
+Haskell ist eine rein funktionale Sprache, welche in mehreren Schritten zu nativem Maschinencode kompiliert wird.
+Während des Kompilierens wird Haskells starkes Typsystem für die Analyse verwendet.
 
-Zunächst wird der Code vereinfacht. Dabei werden sämtliche syntaktischen Erweiterungen in eine Basisform gebracht und die Komplexität des Codes reduziert.
-%
+Der ausdruckstarke Syntax in Haskell macht es einfach, mathematische Ausdrücke und Funktionen im Code darzustellen.
+Diese mathematische Schwerpunkt der Programmiersprache wird durch einen ganzzahligen Datentypen unterstützt, dessen Größe von der Architektur der Maschine abhängt, auf der das Programm ausgeführt wird.
+In dieser Arbeit wird eine 64-Bit Architektur verwendet, wodurch die Größe des Zahlentyps auch 64-Bit beträgt.
+Kommazahlen werden standardmäßig auch als 64-Bit Gleitkommazahl dargestellt.
 
-Compilierter Code
-Mathematische Sprache
-Funktionale Sprache
-
-Integer (Systemstandard 64-Bit)
-Double (64-Bit Gleitkommazahl)
-Lazy Listen
+Da Haskell eine kompilierte Sprache ist, die für das Auswerten von mathematischen Operationen optimiert ist, wird der kompilierte Programmcode erwartungsmäßig schnell sein.
+Jedoch wertet Haskell jeden Ausdrück verzögert aus, was zwar als mächtiges Werkzeug beim Programmieren verwendet werden kann, jedoch auch Overhead bei der Auswertung und beim Ausführen eines Programmes erzeugt, wodurch die Performance beeinträchtigt wird.
 
 
 \subsection{Java}
