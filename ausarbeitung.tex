@@ -58,7 +58,7 @@ Als Nachteil bei diesem Modell muss jedoch der verhältnismäßig hohe Aufwand b
 Das Backend eines Compilers für eine kompilierte Sprache muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenspezifischen Prozessoranweisungen auch nutzen zu können.
 Ein anderer Nachteil wird bei der Softwareentwicklung deutlich.
 Änderungen müssen immer zuerst neu kompiliert werden, sodass die Entwicklung verlangsamt wird.
-Zudem ist es schwerer, Fehler zu debuggen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur der Anweisungen sehr unterschiedlich zum Quellcode sein kann.
+Zudem ist es schwerer, Fehler zu debuggen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur der Anweisungen sehr unterschiedlich zum Quellcode sein kann. %TODO nicht nur Fehler debuggen
 Zudem wird die Verfügbarkeit einiger höherer Sprachfeatures eingeschränkt.
 Beispielsweise wird die Introspektion ohne eine Laufzeitumgebung nur dadurch möglich, dass zu allen Instanzen bereits zur Kompilierzeit Typinformationen abgelegt werden.
 In C++ können für diesen Zweck Präprozessoranweisungen verwendet werden, mit deren Hilfe der Programmierer im Quellcode die benötigten Zusatzinformationen über Typen und Namen der Instanzvariablen selbst in entsprechende Strukturen eintragen kann.
@@ -124,29 +124,61 @@ Der ausdruckstarke Syntax in Haskell macht es einfach, mathematische Ausdrücke 
 Diese mathematische Schwerpunkt der Programmiersprache wird durch einen ganzzahligen Datentypen unterstützt, dessen Größe von der Architektur der Maschine abhängt, auf der das Programm ausgeführt wird.
 In dieser Arbeit wird eine 64-Bit Architektur verwendet, wodurch die Größe des Zahlentyps auch 64-Bit beträgt.
 Kommazahlen werden standardmäßig auch als 64-Bit Gleitkommazahl dargestellt.
+%TODO REF Haskell Wiki - Garbage Collection
+Haskell verfügt zudem über eine automatische Garbage-Collection, welche die Ausführung für kurze Zeit unterbricht, wenn Speicherplatz benötigt wird.
+%TODO REF While and Field, Garbage Collection STG Machine
+Der Garbage-Collector ist jedoch sehr simpel gehalten und kann sehr effizient arbeiten, da Haskell nur unveränderliche Datentypen unterstützt.
+
 
 Da Haskell eine kompilierte Sprache ist, die für das Auswerten von mathematischen Operationen optimiert ist, wird der kompilierte Programmcode erwartungsmäßig schnell sein.
 Jedoch wertet Haskell jeden Ausdrück verzögert aus, was zwar als mächtiges Werkzeug beim Programmieren verwendet werden kann, jedoch auch Overhead bei der Auswertung und beim Ausführen eines Programmes erzeugt, wodurch die Performance beeinträchtigt wird.
 
 
 \subsection{Java}
-Basierend auf VM
-Allrounder/Vielseitige Sprache (Enterprise)
-Objektorientiert
 
-long (64-Bit Integer)
-double (64-Bit Gleitkommazahl)
-Lazy Listen als Iterator/Stream (LongStream.range)
+Java als Programmiersprache ist vielseitig verwendbar, objektorientiert und mit dem Ziel entwickelt worden, einmal kompilierten Java-Code überall ausführen zu können.
+Der Java-Kompiler produziert dabei speziellen Bytecode, der für die Java Virtual Machine (JVM) optimiert und plattformunabhängig ist.
+Dieser Bytecode kann dann auf jeder beliebigen Plattform ausgeführt werden, solange es eine Implementierung der JVM für diese gibt.
+
+Java verfügt über eine breite Spanne an primitiven Datentypen, die verwendet werden, um Zahlen darzustellen.
+Für Ganzzahlen gibt es Datentypen deren Größe von 8-Bit bis hin zu 64-Bit reicht.
+Kommazahlen werden als Gleitkommazahlen mit einer Größe von 32 oder 64-Bit dargestellt.
+% TODO REF Oracle, Types of GC
+Für die Garbage-Collection besitzt die JVM eine ganze Reihe an verschiedener Algorithmen, die stetig weiterentwickelt werden und dem Verwendungszweck angepasst werden können.
+Standardmäßig wird ein paralleler Garbage-Collector verwendet, welcher in einem eigenen Thread arbeitet, sodass der normale Programmablauf nicht unterbrochen wird.
+
+Obwohl Java nicht direkt in Maschinencode übersetzt wird, ist Java ein weiterer Kandidat für sehr schnelle Programme, da der Bytecode sowie die JVM auf der dieser ausgeführt wird, stetig optimiert werden.
+% TODO REF Medium Java JIT
+Zudem verfügt die JVM über einen komplexen Just-in-Time Kompiliermechanismus, welcher zur Laufzeit die ausgeführten Anweisungen nicht nur in nativen Code umwandeln kann, sondern zusätzlich noch laufzeitabhängige Optimierungen durchführt.
 
 
 \subsection{Python}
-Interpretiert
-Allrounder, Schwerpunkt Mathematik/Statistik
-Objektorientiert / Skriptsprache
 
-Ein int Typ. Unbounded aber optimiert innerhalb 2\^64
-double als standard C-double (64-Gleitkommazahl)
-range für lazy int reihen
+Python ist eine universelle Programmierspache, welche interpretiert ausgeführt wird und durch ein hohes Abstraktionslevel den Anspruch hat, sauberen und gut lesbaren Code zu fördern.
+In Python geschriebener Quellcode wird direkt ohne weitere Analyse- oder Kompilierschritte von einem Interpreter ausgeführt.
+
+Häufige Anwendungen für Python liegen im Bereich der Wissenschaft und Datenanalyse.
+Zur Darstellung von ganzen Zahlen besitzt Python einen Typen, der Ganzzahlen ohne Einschränkung der Reichweite speichern und verarbeiten kann.
+% TODO REF
+Da solch unbegrenzte Zahlentypen komplexe Berechnungen für Rechenoperationen benötigen ist dieser Zahlentyp für die Reichweite von 64-Bit optimiert, sodass mit Zahlen, die als eine 64-Bit Ganzzahl dargestellt werden können, auch als solche behandelt werden, was die Performance in diesen Zahlenräumen verbessert.
+Kommazahlen werden als normale 64-Bit Gleitkommazahlen in C dargestellt.
+% TODO REF Python internals blog
+Pythons Garbage-Collector basiert auf einem Referenzzähler, der jedoch Zyklen erkennen muss, um die Garbage-Collection korrekt durchführen zu können.
+Die Garbage-Collection in Python wird ausgeführt, wenn ein bestimmter Schwellenwert für den Speicherverbrauch überschritten wird.
+
+Da Python nur interpretiert ausgeführt wird, wird die Rechenzeit für Programme in Python vermutlich am höchsten sein.
+Zwar gibt es teilweise Just-in-Time Kompilierung für Python Interpreter, jedoch ist diese keineswegs so ausgereift wie bei Java und auch nicht so effizient.
+
+% TODO Zu jeder Sprache den Benchmarking-Framework hinzufügen?
+
+\section{Wahl des Testprogrammes}
+
+Aus dem vorherigen Vergleich wird deutlich, dass alle gewählten Sprachen über einen ganzzahligen Datentypen verfügen, der eine Größe von 64-Bit besitzt oder zumindest für diese Größe optimiert ist.
+Zudem besitzen alle Sprachen über eine automatische Garbage-Collection, wodurch eventuelle Geschwindigkeitsvorteile oder auch Nachteile durch manuelle Speicherverwaltung wegfallen.
+
+Diese Tatsachen führen zu der Überlegung, dass mathematische Problemstellungen als gute Grundlage für einen Vergleich der Rechenzeiten dienen, da die mathematischen Formeln und Aussagen direkt in die einzelnen Programmiersprachen übertragen werden können, ohne auf große Unterschiede in den Kapazitäten der einzelnen Sprachen zu stoßen.
+
+Es muss lediglich darauf geachtet werden, dass bei den mathematischen Berechnungen der Zahlenraum nicht überschritten wird, der durch die 64-Bit Ganzzahlen oder Gleitkommazahlen festgelegt wird.
 
 
 \section{Fibonacci (rekursiv)}
