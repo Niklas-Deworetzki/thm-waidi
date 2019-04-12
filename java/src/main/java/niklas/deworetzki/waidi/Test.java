@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(time = 60)
 public class Test {
 
-	@Param({"10", "15", "20", "25", "30"})
+	@Param({"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"})
 	private int N;
 
 	public static void main(String[] args) throws RunnerException {
