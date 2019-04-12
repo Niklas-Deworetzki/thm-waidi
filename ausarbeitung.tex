@@ -171,7 +171,7 @@ Zwar gibt es teilweise Just-in-Time Kompilierung für Python Interpreter, jedoch
 
 % TODO Zu jeder Sprache den Benchmarking-Framework hinzufügen?
 
-\section{Wahl des Testprogrammes}
+\section{Auswahlkriterien für ein Testprogramm}
 
 Aus dem vorherigen Vergleich wird deutlich, dass alle gewählten Sprachen über einen ganzzahligen Datentypen verfügen, der eine Größe von 64-Bit besitzt oder zumindest für diese Größe optimiert ist.
 Zudem besitzen alle Sprachen über eine automatische Garbage-Collection, wodurch eventuelle Geschwindigkeitsvorteile oder auch Nachteile durch manuelle Speicherverwaltung wegfallen.
@@ -181,7 +181,20 @@ Diese Tatsachen führen zu der Überlegung, dass mathematische Problemstellungen
 Es muss lediglich darauf geachtet werden, dass bei den mathematischen Berechnungen der Zahlenraum nicht überschritten wird, der durch die 64-Bit Ganzzahlen oder Gleitkommazahlen festgelegt wird.
 
 
-\section{Fibonacci (rekursiv)}
+\section{Fibonacci}
+
+Eine mathematische Folge, die sämtliche oben genannten Kriterien erfüllt, ist die Folge der Fibonacci-Zahlen.
+
+$$
+fib _{n} = \left.
+  \begin{cases}
+    1 = 1 \\
+    2 = 1 \\
+    n = fib_{n-1} + fib_{n-2}
+  \end{cases}
+\right\}
+$$
+
 Pseudocode einfügen (mathematische Gleichung)
 Laufzeitanalyse O(2\^n)
 
