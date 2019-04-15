@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
-@Warmup(iterations = 5)
-@Measurement(time = 60)
+@Warmup(iterations = 2)
+@Measurement(time = 60, iterations = 2)
 public class Test {
 
 	@Param({"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"})
