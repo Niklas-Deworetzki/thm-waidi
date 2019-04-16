@@ -15,7 +15,6 @@ time                 702.4 ns   (702.1 ns .. 702.7 ns)
                      1.000 R²   (1.000 R² .. 1.000 R²)
 mean                 704.0 ns   (702.5 ns .. 707.8 ns)
 std dev              11.20 ns   (5.029 ns .. 21.44 ns)
-variance introduced by outliers: 20% (moderately inflated)
 
 benchmarking fib/13
 time                 1.128 μs   (1.128 μs .. 1.129 μs)
@@ -34,14 +33,12 @@ time                 3.230 μs   (3.057 μs .. 3.395 μs)
                      0.987 R²   (0.980 R² .. 0.996 R²)
 mean                 2.993 μs   (2.972 μs .. 3.042 μs)
 std dev              148.3 ns   (83.20 ns .. 250.6 ns)
-variance introduced by outliers: 69% (severely inflated)
 
 benchmarking fib/16
 time                 4.782 μs   (4.775 μs .. 4.794 μs)
                      0.999 R²   (0.997 R² .. 0.999 R²)
 mean                 5.059 μs   (4.961 μs .. 5.238 μs)
 std dev              639.7 ns   (423.5 ns .. 1.015 μs)
-variance introduced by outliers: 94% (severely inflated)
 
 benchmarking fib/17
 time                 7.752 μs   (7.748 μs .. 7.756 μs)
@@ -84,7 +81,6 @@ time                 139.0 μs   (138.9 μs .. 139.1 μs)
                      1.000 R²   (1.000 R² .. 1.000 R²)
 mean                 139.3 μs   (139.0 μs .. 140.3 μs)
 std dev              2.561 μs   (767.4 ns .. 5.290 μs)
-variance introduced by outliers: 17% (moderately inflated)
 
 benchmarking fib/24
 time                 224.8 μs   (224.7 μs .. 224.9 μs)
