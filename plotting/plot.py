@@ -32,26 +32,28 @@ def drawRawPlot(ax, data, barcolor):
 	ax.bar(x_pos - 10, y_val, align='center', color=barcolor, alpha=1)
 
 
-
+plotType = input('Enter type (linear, log): ')
+plotType = 'linear' if not plotType or not plotType in ['linear', 'log'] else plotType
 
 fig, ax = plt.subplots()
-dataPython = readFile('python-19-04-15.result')
-dataHaskell = readFile('haskell-19-04-15.result')
+dataPython  = readFile('python.result')
+dataHaskell = readFile('haskell.result')
+dataJava    = readFile('java.result')
 
 drawRawPlot(ax, dataPython, 'yellow')
 drawRawPlot(ax, dataHaskell, 'blue')
-#drawRawPlot(ax, dataJava, 'firebrick')
+drawRawPlot(ax, dataJava, 'firebrick')
 
 ax.set_xticks(np.arange(1 + 25 - 10))
 ax.set_xticklabels([str(n) for n in range(10, 25 + 1)])
 
 ax.set_ylabel('Y Label')
-ax.set_yscale('log')
+ax.set_yscale(plotType)
 ax.yaxis.grid(True)
 
 ax.set_title('Plot title')
 
 plt.tight_layout()
-plt.savefig(input('Enter a filename: ') + '.svg')
+plt.savefig('bars-' + plotType + '.svg')
 plt.show()
 
