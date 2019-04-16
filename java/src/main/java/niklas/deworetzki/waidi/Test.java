@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
 @Warmup(iterations = 2)
-@Measurement(time = 60, iterations = 2)
+@Measurement(time = 45, iterations = 5)
 public class Test {
 
 	@Param({"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"})
