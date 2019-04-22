@@ -18,6 +18,7 @@
 	basewidth={0.5em,0.45em},
 	extendedchars=true}
 \usepackage{amsmath} % Mathematik
+\usepackage{amssymb} % Mathematische Symbole
 \usepackage[pdftex]{hyperref}       
 \hypersetup{
 	bookmarksopen=true,
@@ -32,6 +33,11 @@
 \setcounter{tocdepth}{3}     % 3 Stufen im Inhaltsverzeichnis
 \setcounter{secnumdepth}{3}  % 3 Stufen in Abschnittnummerierung
 
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+
 \begin{document}
 
 % TODO Aktuell?
@@ -40,7 +46,7 @@
 Im Folgenden werden verschiedene Ausführungsmodelle diskutiert.
 Ein Ausführungsmodell beschreibt, wie ein Programm aus einer Quellsprache verarbeitet werden muss, um es ausführen zu können.
 Der genaue Ablauf um ein Programm aus einer Quellsprache in eine ausführbare Zielsprache zu transformieren, hängt jedoch stark von der entsprechenden Quellsprache ab.
-% TODO mehr text? Wie sage ich, dass das nur ein allgemeines Beispiel ist und im einzelnen anders aussehen kann?
+% TODO mehr Text? Wie sage ich, dass das nur ein allgemeines Beispiel ist und im einzelnen anders aussehen kann?
 
 \subsection{Ausführbarer Maschinencode}
 
@@ -181,9 +187,10 @@ Diese Tatsachen führen zu der Überlegung, dass mathematische Problemstellungen
 Es muss lediglich darauf geachtet werden, dass bei den mathematischen Berechnungen der Zahlenraum nicht überschritten wird, der durch die 64-Bit Ganzzahlen oder Gleitkommazahlen festgelegt wird.
 
 
-\section{Fibonacci}
+\subsection{Fibonacci}
 
 Eine mathematische Folge, die sämtliche oben genannten Kriterien erfüllt, ist die Folge der Fibonacci-Zahlen.
+Eine Zahl aus dieser Folge lässt sich mit folgender Gleichung bestimmen:
 
 $$
 fib _{n} = \left.
@@ -195,21 +202,30 @@ fib _{n} = \left.
 \right\}
 $$
 
-Pseudocode einfügen (mathematische Gleichung)
-Laufzeitanalyse O(2\^n)
+Die Laufzeitkomplexität dieser rekursiven Funktion liegt in $O(2^{n})$ und lässt sich sogar genauer als $\Theta(fib_{n})$ ausdrücken.
 
-Code Python, Java, Haskell
+Zur Vereinfachung einer Implementierung kann der Definitionsbereich der Funktion $fib$ als $\N^*$ angenommen werden. Dadurch lässt sich die Funktion nur noch mit zwei Funktionsfällen schreiben:
+
+$$
+fib _{n} = \left.
+  \begin{cases}
+    n \leq 2 = 1 \\
+    n = fib_{n-1} + fib_{n-2}
+  \end{cases}
+\right\}
+$$
+
+Diese Umformung verändert die Laufzeitkomplexität der Funktion nicht, da sowohl der Rekursionsschritt unverändert bleibt als auch die Anzahl und Bedingung der Basisfälle.
+
+In der Funktion treten nur Ganzzahlen und simple Addition beziehungsweise Subtraktion zur Berechnung auf, welche direkt in die einzelnen Programmiersprachen übertragen werden können.
+
+Zu Zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden. Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12200160415121876738$. Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre dauern. Daher kann angenommen werden, dass in diesem Rahmen die Einschränkungen der Ganzzahlen nicht überschritten wird. 
+% REF Schölzels Vorlesung für die Zeiten?
+
+\section{Implementierungen in den Programmiersprachen}
 
 
-Bytecode / Compilierten Code
-=> Stackaufbau, wenig Berechnung
 
-Fibonacci anders
-
-\section{Fibonacci (iterativ)}
-
-%Gute Impl finden
-%Laufzeitanalyse
 
 
 \section{Notizen}
