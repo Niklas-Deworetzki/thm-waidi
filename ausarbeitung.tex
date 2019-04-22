@@ -12,11 +12,6 @@
 \usepackage[babel]{csquotes}         % Anführungszeichen
 \usepackage{graphicx}                % Graphiken
 \usepackage{booktabs}                % Tabellen schöner
-\usepackage{listingsutf8}            % Listings mit Einstellungen
-\lstset{basicstyle=\small\ttfamily,
-	tabsize=2,
-	basewidth={0.5em,0.45em},
-	extendedchars=true}
 \usepackage{amsmath} % Mathematik
 \usepackage{amssymb} % Mathematische Symbole
 \usepackage[pdftex]{hyperref}       
@@ -37,6 +32,53 @@
 \newcommand*{\Z}{\mathbb{Z}}
 \newcommand*{\Q}{\mathbb{Q}}
 \newcommand*{\R}{\mathbb{R}}
+
+% Code packages
+\usepackage{listingsutf8} % Code mit UTF-8 Support
+\usepackage{color,xcolor} % Farben definierbar als HTML, RGB, ...
+\usepackage{textcomp}
+
+\definecolor{alabasterGray}{HTML}{F7F7F7}
+\definecolor{alabasterBlue}{HTML}{325CC0}
+\definecolor{alabasterGreen}{HTML}{448C27}
+\definecolor{alabasterPink}{HTML}{7A3E9D}
+\definecolor{alabasterRed}{HTML}{AA3731}
+
+\lstset{ 
+  basewidth={0.5em,0.45em},
+  extendedchars=true,
+  backgroundcolor=\color{alabasterGray}, % background color (color or xcolor needed)
+  basicstyle=\small\ttfamily, 
+  keywordstyle=\color{alabasterBlue}, 
+  commentstyle=\color{alabasterRed}, 
+  rulecolor=\color{black},          % frame color may change if not set (frame on comment, is comment-colored)
+  stringstyle=\color{alabasterGreen}, 
+  numberstyle=\tiny\color{gray},    % 
+  numbers=none,                     % where to put the line-numbers (none, left, right)
+  numbersep=7pt,                    % margin between numbers and code
+  stepnumber=1,                     % every n-th row will be numbered
+  captionpos=b,                     % sets the caption-position to bottom
+  frame=single,	                    % adds a frame around the code 
+  keepspaces=true,                  % keeps spaces in text
+  showtabs=false,                   % show tabs as special char
+  showspaces=false,                 % show spaces as special char
+  showstringspaces=false,           % show spaces in strings only as special char
+  tabsize=2,	                    % tabsize is 2 spaces
+  breakatwhitespace=false,          % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                  % sets automatic line breaking
+}
+\lstset{
+  literate={ö}{{\"o}}1
+           {ä}{{\"a}}1
+           {ü}{{\"u}}1
+           % https://tex.stackexchange.com/questions/17739/listings-package-how-to-highlight-math-operators
+           {true}{{{\color{alabasterPink}true}}}4
+           {false}{{{\color{alabasterPink}false}}}5
+           {TRUE}{{{\color{alabasterPink}TRUE}}}4
+           {FALSE}{{{\color{alabasterPink}FALSE}}}5
+           {True}{{{\color{alabasterPink}True}}}4
+           {False}{{{\color{alabasterPink}False}}}5
+}
 
 \begin{document}
 
@@ -219,14 +261,64 @@ Diese Umformung verändert die Laufzeitkomplexität der Funktion nicht, da sowoh
 
 In der Funktion treten nur Ganzzahlen und simple Addition beziehungsweise Subtraktion zur Berechnung auf, welche direkt in die einzelnen Programmiersprachen übertragen werden können.
 
-Zu Zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden. Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12200160415121876738$. Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre dauern. Daher kann angenommen werden, dass in diesem Rahmen die Einschränkungen der Ganzzahlen nicht überschritten wird. 
+Zu Zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden. Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12.200.160.415.121.876.738$. Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre dauern. Daher kann angenommen werden, dass in diesem Rahmen die Einschränkungen der Ganzzahlen nicht überschritten wird. 
 % REF Schölzels Vorlesung für die Zeiten?
 
 \section{Implementierungen in den Programmiersprachen}
 
+Für die Implementierung der Funktion $fib$ gilt allgemein, dass in der Programmiersprache eine neue Funktion deklariert werden muss, welche von einer Ganzzahl auf eine andere Ganzzahl abbildet.
+
+Im nächsten Schritt muss differenziert werden, welcher Funktionsfall eintritt.
+Da in der reduzierten Form nur zwei Funktionsfälle definiert sind, genügt hier in einer Abfrage zu überprüfen, ob  das Argument der Funktion kleiner oder gleich zwei ist.
+Ist dies der Fall, so ist der Rückgabewert der Funktion die Konstante $1$.
+Ansonsten müssen zwei rekursive Aufrufe der Funktion gemacht werden, wobei einmal das Argument der Funktion um eins beziehungsweise um zwei reduziert werden muss als Parameter für die rekursiven Aufrufe.
+Der Einfachheit halber wird diese Abfrage als einzelner Ausdruck geschrieben.
+
+\subsection{Haskell}
+
+In Haskell kann die Definition mit Abfrage und rekursivem Aufruf direkt übernommen werden.
+Es muss jedoch die Signatur für die Funktion angegeben werden, um den Typen auf \texttt{Int} zu beschränken, da sonst per Typinferenz der unbegrenzte Ganzzahlentyp \texttt{Integer} gewählt wird.
+
+Da mit \texttt{if} in Haskell auch ein Ausdruck und keine Anweisung eingeleitet wird, kann in dieser Sprache sogar der normale \texttt{if}-Syntax verwendet werden, um die Berechnungen des Funktionsfalles als Ausdruck darzustellen.
+
+\begin{lstlisting}[language=haskell]
+  fib :: Int -> Int
+  fib n = if (n <= 2) then 1 else fib (n-1) + fib (n-2)
+\end{lstlisting}
+
+Zwar werden die Argumente der Funktion in Haskell verzögert ausgewertet.
+Jedoch wird die Auswertung in der Abfrage zur Entscheidung des Funktionsfalles erzwungen, wodurch die Eigenheiten der verzögerten Auswertung hier vernachlässigt werden könne.
 
 
+\subsection{Java}
 
+Auch in Java kann die Definition mit Abfrage und rekursivem Aufruf einfach übernommen werden.
+Bei der Definition der Funktion wird noch der primitive Datentyp \texttt{int} sowohl für das Argument als auch für den Rückgabewert der Funktion festgelegt.
+Zudem ist es in Java sinnvoll, die Funktion als \texttt{static} zu deklarieren, da sie so unabhängig von einer Objektinstanz verwendet werden kann.
+
+In Java muss der ternäre Operator verwendet werden, um die Funktionsfälle als einen Ausdruck darzustellen.
+Die Verwendung von \texttt{if} würde zwei verschiedene Anweisungen mit eigenen Ausdrücken erstellen.
+
+\begin{lstlisting}[language=java]
+  static long fib(long n) {
+    return (n <= 2) ? 1 : fib(n-1) + fib(n-2);
+  }
+\end{lstlisting}
+
+
+\subsection{Python}
+
+Wie zuvor auch wird die Definition mit Abfrage und rekursivem Aufruf direkt übernommen.
+Eine Angabe von Typen ist in Python nicht nötig, da diese zur Laufzeit bestimmt werden.
+
+Aus selbem Grund wie in Java wird auch hier keine \texttt{if}-Anweisung verwendet zur Auswertung der Funktionsfälle.
+
+\begin{lstlisting}[language=python]
+  def fib(n):
+	return 1 if n <= 2 else fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+%TODO Eventuell Text kürzen, damit nur eine Seite entsteht? Pythons Code ist so alleine auf der nächsten Seite.
 
 \section{Notizen}
 
