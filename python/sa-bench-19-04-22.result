@@ -1,0 +1,190 @@
+10
+benchmarking python3 standalone.py 10
+time                 23.13 ms   (22.72 ms .. 23.49 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 22.66 ms   (22.48 ms .. 22.85 ms)
+std dev              411.3 μs   (313.9 μs .. 570.0 μs)
+
+11
+benchmarking python3 standalone.py 11
+time                 23.02 ms   (22.91 ms .. 23.18 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 22.71 ms   (22.54 ms .. 22.87 ms)
+std dev              369.9 μs   (289.9 μs .. 462.0 μs)
+
+12
+benchmarking python3 standalone.py 12
+time                 22.80 ms   (22.49 ms .. 23.09 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 22.73 ms   (22.60 ms .. 22.89 ms)
+std dev              335.3 μs   (250.9 μs .. 459.2 μs)
+
+13
+benchmarking python3 standalone.py 13
+time                 22.66 ms   (22.46 ms .. 22.83 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 22.73 ms   (22.58 ms .. 22.93 ms)
+std dev              382.5 μs   (279.8 μs .. 525.6 μs)
+
+14
+benchmarking python3 standalone.py 14
+time                 22.78 ms   (22.56 ms .. 22.96 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 22.76 ms   (22.65 ms .. 22.85 ms)
+std dev              230.6 μs   (164.5 μs .. 308.4 μs)
+
+15
+benchmarking python3 standalone.py 15
+time                 22.27 ms   (22.02 ms .. 22.53 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 22.83 ms   (22.56 ms .. 23.67 ms)
+std dev              1.102 ms   (245.0 μs .. 1.982 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+16
+benchmarking python3 standalone.py 16
+time                 22.74 ms   (22.54 ms .. 22.93 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 22.74 ms   (22.64 ms .. 22.99 ms)
+std dev              362.7 μs   (163.7 μs .. 651.8 μs)
+
+17
+benchmarking python3 standalone.py 17
+time                 22.74 ms   (22.59 ms .. 22.88 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 22.91 ms   (22.80 ms .. 23.00 ms)
+std dev              233.5 μs   (180.8 μs .. 318.0 μs)
+
+18
+benchmarking python3 standalone.py 18
+time                 22.98 ms   (22.71 ms .. 23.26 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 23.05 ms   (22.89 ms .. 23.28 ms)
+std dev              417.9 μs   (278.5 μs .. 634.0 μs)
+
+19
+benchmarking python3 standalone.py 19
+time                 23.30 ms   (23.06 ms .. 23.59 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 23.43 ms   (23.30 ms .. 23.61 ms)
+std dev              338.5 μs   (239.5 μs .. 432.5 μs)
+
+20
+benchmarking python3 standalone.py 20
+time                 23.78 ms   (23.45 ms .. 24.10 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 23.91 ms   (23.76 ms .. 24.04 ms)
+std dev              312.3 μs   (232.0 μs .. 403.3 μs)
+
+21
+benchmarking python3 standalone.py 21
+time                 24.75 ms   (24.57 ms .. 24.99 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 24.84 ms   (24.70 ms .. 25.03 ms)
+std dev              361.2 μs   (223.9 μs .. 543.2 μs)
+
+22
+benchmarking python3 standalone.py 22
+time                 26.00 ms   (25.66 ms .. 26.29 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 26.12 ms   (25.93 ms .. 26.38 ms)
+std dev              481.0 μs   (336.6 μs .. 728.2 μs)
+
+23
+benchmarking python3 standalone.py 23
+time                 28.47 ms   (28.01 ms .. 28.85 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 28.51 ms   (28.28 ms .. 28.74 ms)
+std dev              486.2 μs   (357.7 μs .. 665.7 μs)
+
+24
+benchmarking python3 standalone.py 24
+time                 32.03 ms   (31.80 ms .. 32.31 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 31.96 ms   (31.83 ms .. 32.11 ms)
+std dev              312.0 μs   (243.5 μs .. 430.6 μs)
+
+25
+benchmarking python3 standalone.py 25
+time                 37.98 ms   (37.38 ms .. 38.66 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 37.79 ms   (37.45 ms .. 38.28 ms)
+std dev              775.3 μs   (538.2 μs .. 1.187 ms)
+
+26
+benchmarking python3 standalone.py 26
+time                 46.87 ms   (46.43 ms .. 47.30 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 47.39 ms   (47.07 ms .. 47.82 ms)
+std dev              737.0 μs   (474.5 μs .. 976.1 μs)
+
+27
+benchmarking python3 standalone.py 27
+time                 61.73 ms   (61.07 ms .. 62.20 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 61.99 ms   (61.65 ms .. 62.79 ms)
+std dev              904.2 μs   (353.8 μs .. 1.611 ms)
+
+28
+benchmarking python3 standalone.py 28
+time                 86.89 ms   (85.70 ms .. 88.38 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 86.66 ms   (86.09 ms .. 87.35 ms)
+std dev              1.103 ms   (736.3 μs .. 1.616 ms)
+
+29
+benchmarking python3 standalone.py 29
+time                 126.4 ms   (125.7 ms .. 128.0 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 125.6 ms   (124.8 ms .. 126.3 ms)
+std dev              1.019 ms   (652.3 μs .. 1.690 ms)
+variance introduced by outliers: 11% (moderately inflated)
+
+30
+benchmarking python3 standalone.py 30
+time                 191.6 ms   (188.7 ms .. 194.2 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 191.2 ms   (190.5 ms .. 192.0 ms)
+std dev              1.021 ms   (638.3 μs .. 1.507 ms)
+variance introduced by outliers: 14% (moderately inflated)
+
+31
+benchmarking python3 standalone.py 31
+time                 289.7 ms   (278.7 ms .. 299.4 ms)
+                     0.999 R²   (0.995 R² .. 1.000 R²)
+mean                 296.8 ms   (291.4 ms .. 301.7 ms)
+std dev              6.873 ms   (3.982 ms .. 9.503 ms)
+variance introduced by outliers: 16% (moderately inflated)
+
+32
+benchmarking python3 standalone.py 32
+time                 452.2 ms   (428.2 ms .. 463.3 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 470.3 ms   (462.0 ms .. 476.8 ms)
+std dev              9.522 ms   (5.706 ms .. 13.37 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+33
+benchmarking python3 standalone.py 33
+time                 730.3 ms   (694.4 ms .. 761.2 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 733.3 ms   (729.3 ms .. 738.8 ms)
+std dev              5.232 ms   (2.297 ms .. 6.617 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+34
+benchmarking python3 standalone.py 34
+time                 1.159 s    (1.087 s .. 1.215 s)
+                     1.000 R²   (0.998 R² .. 1.000 R²)
+mean                 1.165 s    (1.158 s .. 1.174 s)
+std dev              9.853 ms   (2.735 ms .. 13.19 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+35
+benchmarking python3 standalone.py 35
+time                 1.860 s    (1.836 s .. 1.916 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 1.861 s    (1.850 s .. 1.869 s)
+std dev              11.08 ms   (5.295 ms .. 14.41 ms)
+variance introduced by outliers: 19% (moderately inflated)
+

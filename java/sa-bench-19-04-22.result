@@ -1,0 +1,182 @@
+10
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 10
+time                 60.00 ms   (59.25 ms .. 60.84 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 60.16 ms   (59.75 ms .. 60.76 ms)
+std dev              922.2 μs   (556.9 μs .. 1.351 ms)
+
+11
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 11
+time                 59.15 ms   (58.51 ms .. 59.70 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 59.16 ms   (58.84 ms .. 59.45 ms)
+std dev              548.2 μs   (389.9 μs .. 800.3 μs)
+
+12
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 12
+time                 60.06 ms   (58.91 ms .. 60.86 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 59.86 ms   (58.83 ms .. 60.40 ms)
+std dev              1.366 ms   (689.0 μs .. 2.354 ms)
+
+13
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 13
+time                 59.33 ms   (58.41 ms .. 60.02 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 59.28 ms   (58.78 ms .. 60.28 ms)
+std dev              1.254 ms   (646.5 μs .. 1.951 ms)
+
+14
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 14
+time                 59.82 ms   (58.96 ms .. 60.43 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 59.47 ms   (59.08 ms .. 59.99 ms)
+std dev              826.2 μs   (554.2 μs .. 1.228 ms)
+
+15
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 15
+time                 60.01 ms   (58.89 ms .. 61.10 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 58.87 ms   (58.03 ms .. 59.50 ms)
+std dev              1.384 ms   (984.1 μs .. 1.951 ms)
+
+16
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 16
+time                 59.89 ms   (58.92 ms .. 60.62 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 59.99 ms   (59.46 ms .. 60.53 ms)
+std dev              1.006 ms   (742.5 μs .. 1.446 ms)
+
+17
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 17
+time                 60.13 ms   (59.00 ms .. 61.45 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 59.88 ms   (59.07 ms .. 60.65 ms)
+std dev              1.405 ms   (1.037 ms .. 1.967 ms)
+
+18
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 18
+time                 59.69 ms   (58.44 ms .. 60.53 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 59.71 ms   (59.26 ms .. 60.22 ms)
+std dev              846.0 μs   (620.4 μs .. 1.231 ms)
+
+19
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 19
+time                 73.73 ms   (71.80 ms .. 75.50 ms)
+                     0.998 R²   (0.995 R² .. 1.000 R²)
+mean                 73.71 ms   (72.60 ms .. 74.74 ms)
+std dev              1.847 ms   (1.233 ms .. 2.707 ms)
+
+20
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 20
+time                 72.01 ms   (69.66 ms .. 73.77 ms)
+                     0.998 R²   (0.996 R² .. 1.000 R²)
+mean                 73.39 ms   (72.49 ms .. 74.77 ms)
+std dev              1.985 ms   (1.052 ms .. 3.220 ms)
+
+21
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 21
+time                 73.45 ms   (72.47 ms .. 74.94 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 73.19 ms   (72.60 ms .. 73.84 ms)
+std dev              1.137 ms   (759.5 μs .. 1.790 ms)
+
+22
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 22
+time                 74.15 ms   (71.10 ms .. 75.56 ms)
+                     0.998 R²   (0.996 R² .. 1.000 R²)
+mean                 74.24 ms   (73.02 ms .. 75.01 ms)
+std dev              1.725 ms   (1.277 ms .. 2.207 ms)
+
+23
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 23
+time                 70.87 ms   (68.74 ms .. 73.10 ms)
+                     0.997 R²   (0.993 R² .. 0.999 R²)
+mean                 73.01 ms   (71.57 ms .. 74.30 ms)
+std dev              2.329 ms   (1.690 ms .. 3.313 ms)
+
+24
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 24
+time                 59.68 ms   (58.94 ms .. 60.51 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 60.36 ms   (59.85 ms .. 61.65 ms)
+std dev              1.387 ms   (580.4 μs .. 2.475 ms)
+
+25
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 25
+time                 60.33 ms   (59.78 ms .. 60.72 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 60.70 ms   (60.43 ms .. 61.33 ms)
+std dev              683.0 μs   (325.4 μs .. 1.138 ms)
+
+26
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 26
+time                 60.21 ms   (59.01 ms .. 61.13 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 61.13 ms   (60.58 ms .. 62.30 ms)
+std dev              1.354 ms   (539.6 μs .. 2.180 ms)
+
+27
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 27
+time                 60.90 ms   (60.13 ms .. 61.76 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 61.42 ms   (60.96 ms .. 61.92 ms)
+std dev              943.7 μs   (736.5 μs .. 1.258 ms)
+
+28
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 28
+time                 61.86 ms   (61.36 ms .. 62.48 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 61.88 ms   (61.40 ms .. 62.36 ms)
+std dev              893.7 μs   (666.4 μs .. 1.428 ms)
+
+29
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 29
+time                 62.04 ms   (61.29 ms .. 62.57 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 61.79 ms   (61.45 ms .. 62.09 ms)
+std dev              600.7 μs   (450.5 μs .. 750.7 μs)
+
+30
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 30
+time                 62.95 ms   (62.34 ms .. 64.15 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 62.74 ms   (62.28 ms .. 63.23 ms)
+std dev              951.2 μs   (691.6 μs .. 1.373 ms)
+
+31
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 31
+time                 64.18 ms   (63.27 ms .. 65.15 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 64.71 ms   (64.25 ms .. 65.58 ms)
+std dev              1.125 ms   (597.0 μs .. 1.770 ms)
+
+32
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 32
+time                 66.97 ms   (65.98 ms .. 67.73 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 67.31 ms   (66.86 ms .. 67.76 ms)
+std dev              766.0 μs   (579.7 μs .. 1.056 ms)
+
+33
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 33
+time                 71.24 ms   (69.58 ms .. 72.28 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 71.59 ms   (71.06 ms .. 72.27 ms)
+std dev              1.079 ms   (665.3 μs .. 1.652 ms)
+
+34
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 34
+time                 76.46 ms   (75.83 ms .. 77.08 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 77.74 ms   (77.18 ms .. 78.70 ms)
+std dev              1.225 ms   (754.9 μs .. 1.834 ms)
+
+35
+benchmarking java -jar out/artifacts/WAidI_Java_jar/WAidI-Java.jar 35
+time                 85.83 ms   (84.37 ms .. 87.22 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 86.89 ms   (85.89 ms .. 88.01 ms)
+std dev              1.789 ms   (1.223 ms .. 2.745 ms)
+

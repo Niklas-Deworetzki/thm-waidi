@@ -1,0 +1,792 @@
+/usr/lib/jvm/java-8-openjdk/bin/java -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/jfxrt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfxswt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/management-agent.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/home/niklas/git/waidi-rechenzeitvergleich/java/target/classes:/home/niklas/.m2/repository/org/openjdk/jmh/jmh-core/1.21/jmh-core-1.21.jar:/home/niklas/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/niklas/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/niklas/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.21/jmh-generator-annprocess-1.21.jar niklas.deworetzki.waidi.Test
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 10)
+
+# Run progress: 0.00% complete, ETA 01:46:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.164 us/op
+# Warmup Iteration   2: 0.155 us/op
+Iteration   1: 0.149 us/op
+Iteration   2: 0.150 us/op
+Iteration   3: 0.150 us/op
+Iteration   4: 0.151 us/op
+Iteration   5: 0.151 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  0.150 ±(99.9%) 0.003 us/op [Average]
+  (min, avg, max) = (0.149, 0.150, 0.151), stdev = 0.001
+  CI (99.9%): [0.148, 0.153] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 11)
+
+# Run progress: 3.85% complete, ETA 01:42:45
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.255 us/op
+# Warmup Iteration   2: 0.255 us/op
+Iteration   1: 0.242 us/op
+Iteration   2: 0.242 us/op
+Iteration   3: 0.243 us/op
+Iteration   4: 0.242 us/op
+Iteration   5: 0.241 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  0.242 ±(99.9%) 0.002 us/op [Average]
+  (min, avg, max) = (0.241, 0.242, 0.243), stdev = 0.001
+  CI (99.9%): [0.240, 0.245] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 12)
+
+# Run progress: 7.69% complete, ETA 01:38:32
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.419 us/op
+# Warmup Iteration   2: 0.417 us/op
+Iteration   1: 0.397 us/op
+Iteration   2: 0.399 us/op
+Iteration   3: 0.404 us/op
+Iteration   4: 0.399 us/op
+Iteration   5: 0.401 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  0.400 ±(99.9%) 0.010 us/op [Average]
+  (min, avg, max) = (0.397, 0.400, 0.404), stdev = 0.003
+  CI (99.9%): [0.390, 0.410] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 13)
+
+# Run progress: 11.54% complete, ETA 01:34:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.668 us/op
+# Warmup Iteration   2: 0.670 us/op
+Iteration   1: 0.670 us/op
+Iteration   2: 0.673 us/op
+Iteration   3: 0.670 us/op
+Iteration   4: 0.670 us/op
+Iteration   5: 0.671 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  0.671 ±(99.9%) 0.004 us/op [Average]
+  (min, avg, max) = (0.670, 0.671, 0.673), stdev = 0.001
+  CI (99.9%): [0.667, 0.675] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 14)
+
+# Run progress: 15.38% complete, ETA 01:30:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 1.068 us/op
+# Warmup Iteration   2: 1.069 us/op
+Iteration   1: 1.054 us/op
+Iteration   2: 1.054 us/op
+Iteration   3: 1.056 us/op
+Iteration   4: 1.054 us/op
+Iteration   5: 1.054 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  1.054 ±(99.9%) 0.004 us/op [Average]
+  (min, avg, max) = (1.054, 1.054, 1.056), stdev = 0.001
+  CI (99.9%): [1.050, 1.059] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 15)
+
+# Run progress: 19.23% complete, ETA 01:26:04
+# Fork: 1 of 1
+# Warmup Iteration   1: 1.736 us/op
+# Warmup Iteration   2: 1.728 us/op
+Iteration   1: 1.665 us/op
+Iteration   2: 1.668 us/op
+Iteration   3: 1.665 us/op
+Iteration   4: 1.663 us/op
+Iteration   5: 1.666 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  1.665 ±(99.9%) 0.006 us/op [Average]
+  (min, avg, max) = (1.663, 1.665, 1.668), stdev = 0.002
+  CI (99.9%): [1.659, 1.671] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 16)
+
+# Run progress: 23.08% complete, ETA 01:21:57
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.937 us/op
+# Warmup Iteration   2: 2.918 us/op
+Iteration   1: 2.749 us/op
+Iteration   2: 2.744 us/op
+Iteration   3: 2.774 us/op
+Iteration   4: 2.772 us/op
+Iteration   5: 2.759 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  2.760 ±(99.9%) 0.051 us/op [Average]
+  (min, avg, max) = (2.744, 2.760, 2.774), stdev = 0.013
+  CI (99.9%): [2.709, 2.810] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 17)
+
+# Run progress: 26.92% complete, ETA 01:17:51
+# Fork: 1 of 1
+# Warmup Iteration   1: 4.626 us/op
+# Warmup Iteration   2: 4.478 us/op
+Iteration   1: 4.365 us/op
+Iteration   2: 4.359 us/op
+Iteration   3: 4.364 us/op
+Iteration   4: 4.359 us/op
+Iteration   5: 4.362 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  4.362 ±(99.9%) 0.011 us/op [Average]
+  (min, avg, max) = (4.359, 4.362, 4.365), stdev = 0.003
+  CI (99.9%): [4.351, 4.372] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 18)
+
+# Run progress: 30.77% complete, ETA 01:13:44
+# Fork: 1 of 1
+# Warmup Iteration   1: 7.541 us/op
+# Warmup Iteration   2: 7.548 us/op
+Iteration   1: 7.064 us/op
+Iteration   2: 7.063 us/op
+Iteration   3: 7.070 us/op
+Iteration   4: 7.067 us/op
+Iteration   5: 7.066 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  7.066 ±(99.9%) 0.010 us/op [Average]
+  (min, avg, max) = (7.063, 7.066, 7.070), stdev = 0.003
+  CI (99.9%): [7.055, 7.076] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 19)
+
+# Run progress: 34.62% complete, ETA 01:09:38
+# Fork: 1 of 1
+# Warmup Iteration   1: 12.129 us/op
+# Warmup Iteration   2: 12.149 us/op
+Iteration   1: 11.451 us/op
+Iteration   2: 11.450 us/op
+Iteration   3: 11.449 us/op
+Iteration   4: 11.452 us/op
+Iteration   5: 11.441 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  11.449 ±(99.9%) 0.017 us/op [Average]
+  (min, avg, max) = (11.441, 11.449, 11.452), stdev = 0.004
+  CI (99.9%): [11.431, 11.466] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 20)
+
+# Run progress: 38.46% complete, ETA 01:05:32
+# Fork: 1 of 1
+# Warmup Iteration   1: 19.362 us/op
+# Warmup Iteration   2: 19.350 us/op
+Iteration   1: 18.737 us/op
+Iteration   2: 18.722 us/op
+Iteration   3: 18.734 us/op
+Iteration   4: 18.720 us/op
+Iteration   5: 18.713 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  18.725 ±(99.9%) 0.038 us/op [Average]
+  (min, avg, max) = (18.713, 18.725, 18.737), stdev = 0.010
+  CI (99.9%): [18.687, 18.763] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 21)
+
+# Run progress: 42.31% complete, ETA 01:01:26
+# Fork: 1 of 1
+# Warmup Iteration   1: 31.498 us/op
+# Warmup Iteration   2: 31.392 us/op
+Iteration   1: 30.966 us/op
+Iteration   2: 30.961 us/op
+Iteration   3: 30.944 us/op
+Iteration   4: 30.954 us/op
+Iteration   5: 30.981 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  30.962 ±(99.9%) 0.053 us/op [Average]
+  (min, avg, max) = (30.944, 30.962, 30.981), stdev = 0.014
+  CI (99.9%): [30.908, 31.015] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 22)
+
+# Run progress: 46.15% complete, ETA 00:57:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 50.742 us/op
+# Warmup Iteration   2: 50.656 us/op
+Iteration   1: 50.227 us/op
+Iteration   2: 50.250 us/op
+Iteration   3: 50.317 us/op
+Iteration   4: 50.299 us/op
+Iteration   5: 50.297 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  50.278 ±(99.9%) 0.145 us/op [Average]
+  (min, avg, max) = (50.227, 50.278, 50.317), stdev = 0.038
+  CI (99.9%): [50.132, 50.423] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 23)
+
+# Run progress: 50.00% complete, ETA 00:53:14
+# Fork: 1 of 1
+# Warmup Iteration   1: 81.757 us/op
+# Warmup Iteration   2: 81.631 us/op
+Iteration   1: 81.185 us/op
+Iteration   2: 81.078 us/op
+Iteration   3: 82.735 us/op
+Iteration   4: 81.176 us/op
+Iteration   5: 81.108 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  81.457 ±(99.9%) 2.758 us/op [Average]
+  (min, avg, max) = (81.078, 81.457, 82.735), stdev = 0.716
+  CI (99.9%): [78.699, 84.215] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 24)
+
+# Run progress: 53.85% complete, ETA 00:49:08
+# Fork: 1 of 1
+# Warmup Iteration   1: 132.143 us/op
+# Warmup Iteration   2: 131.937 us/op
+Iteration   1: 131.520 us/op
+Iteration   2: 132.008 us/op
+Iteration   3: 131.621 us/op
+Iteration   4: 131.920 us/op
+Iteration   5: 131.502 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  131.714 ±(99.9%) 0.904 us/op [Average]
+  (min, avg, max) = (131.502, 131.714, 132.008), stdev = 0.235
+  CI (99.9%): [130.810, 132.618] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 25)
+
+# Run progress: 57.69% complete, ETA 00:45:02
+# Fork: 1 of 1
+# Warmup Iteration   1: 213.427 us/op
+# Warmup Iteration   2: 213.211 us/op
+Iteration   1: 213.494 us/op
+Iteration   2: 212.777 us/op
+Iteration   3: 212.840 us/op
+Iteration   4: 212.921 us/op
+Iteration   5: 212.922 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  212.991 ±(99.9%) 1.109 us/op [Average]
+  (min, avg, max) = (212.777, 212.991, 213.494), stdev = 0.288
+  CI (99.9%): [211.882, 214.100] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 26)
+
+# Run progress: 61.54% complete, ETA 00:40:57
+# Fork: 1 of 1
+# Warmup Iteration   1: 344.790 us/op
+# Warmup Iteration   2: 345.447 us/op
+Iteration   1: 344.894 us/op
+Iteration   2: 345.129 us/op
+Iteration   3: 344.599 us/op
+Iteration   4: 344.673 us/op
+Iteration   5: 344.563 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  344.772 ±(99.9%) 0.914 us/op [Average]
+  (min, avg, max) = (344.563, 344.772, 345.129), stdev = 0.237
+  CI (99.9%): [343.858, 345.685] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 27)
+
+# Run progress: 65.38% complete, ETA 00:36:51
+# Fork: 1 of 1
+# Warmup Iteration   1: 558.392 us/op
+# Warmup Iteration   2: 557.965 us/op
+Iteration   1: 558.290 us/op
+Iteration   2: 558.722 us/op
+Iteration   3: 558.470 us/op
+Iteration   4: 557.923 us/op
+Iteration   5: 558.578 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  558.397 ±(99.9%) 1.187 us/op [Average]
+  (min, avg, max) = (557.923, 558.397, 558.722), stdev = 0.308
+  CI (99.9%): [557.209, 559.584] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 28)
+
+# Run progress: 69.23% complete, ETA 00:32:45
+# Fork: 1 of 1
+# Warmup Iteration   1: 906.773 us/op
+# Warmup Iteration   2: 902.532 us/op
+Iteration   1: 901.416 us/op
+Iteration   2: 902.653 us/op
+Iteration   3: 902.933 us/op
+Iteration   4: 924.902 us/op
+Iteration   5: 935.421 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  913.465 ±(99.9%) 60.453 us/op [Average]
+  (min, avg, max) = (901.416, 913.465, 935.421), stdev = 15.700
+  CI (99.9%): [853.012, 973.918] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 29)
+
+# Run progress: 73.08% complete, ETA 00:28:39
+# Fork: 1 of 1
+# Warmup Iteration   1: 1465.118 us/op
+# Warmup Iteration   2: 1514.660 us/op
+Iteration   1: 1565.320 us/op
+Iteration   2: 1501.105 us/op
+Iteration   3: 1460.316 us/op
+Iteration   4: 1457.787 us/op
+Iteration   5: 1457.451 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  1488.396 ±(99.9%) 180.220 us/op [Average]
+  (min, avg, max) = (1457.451, 1488.396, 1565.320), stdev = 46.803
+  CI (99.9%): [1308.176, 1668.616] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 30)
+
+# Run progress: 76.92% complete, ETA 00:24:34
+# Fork: 1 of 1
+# Warmup Iteration   1: 2357.857 us/op
+# Warmup Iteration   2: 2366.351 us/op
+Iteration   1: 2355.959 us/op
+Iteration   2: 2359.268 us/op
+Iteration   3: 2355.692 us/op
+Iteration   4: 2356.336 us/op
+Iteration   5: 2356.980 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  2356.847 ±(99.9%) 5.535 us/op [Average]
+  (min, avg, max) = (2355.692, 2356.847, 2359.268), stdev = 1.437
+  CI (99.9%): [2351.312, 2362.382] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 31)
+
+# Run progress: 80.77% complete, ETA 00:20:28
+# Fork: 1 of 1
+# Warmup Iteration   1: 3833.807 us/op
+# Warmup Iteration   2: 3808.568 us/op
+Iteration   1: 3816.244 us/op
+Iteration   2: 3810.010 us/op
+Iteration   3: 3813.152 us/op
+Iteration   4: 3809.671 us/op
+Iteration   5: 3866.829 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  3823.181 ±(99.9%) 94.515 us/op [Average]
+  (min, avg, max) = (3809.671, 3823.181, 3866.829), stdev = 24.545
+  CI (99.9%): [3728.666, 3917.696] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 32)
+
+# Run progress: 84.62% complete, ETA 00:16:22
+# Fork: 1 of 1
+# Warmup Iteration   1: 6197.212 us/op
+# Warmup Iteration   2: 6175.327 us/op
+Iteration   1: 6182.456 us/op
+Iteration   2: 6183.373 us/op
+Iteration   3: 6189.903 us/op
+Iteration   4: 6182.415 us/op
+Iteration   5: 6179.161 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  6183.461 ±(99.9%) 15.172 us/op [Average]
+  (min, avg, max) = (6179.161, 6183.461, 6189.903), stdev = 3.940
+  CI (99.9%): [6168.289, 6198.634] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 33)
+
+# Run progress: 88.46% complete, ETA 00:12:17
+# Fork: 1 of 1
+# Warmup Iteration   1: 9995.882 us/op
+# Warmup Iteration   2: 10000.173 us/op
+Iteration   1: 10000.237 us/op
+Iteration   2: 9991.250 us/op
+Iteration   3: 10005.492 us/op
+Iteration   4: 9993.320 us/op
+Iteration   5: 10005.517 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  9999.163 ±(99.9%) 25.712 us/op [Average]
+  (min, avg, max) = (9991.250, 9999.163, 10005.517), stdev = 6.677
+  CI (99.9%): [9973.452, 10024.875] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 34)
+
+# Run progress: 92.31% complete, ETA 00:08:11
+# Fork: 1 of 1
+# Warmup Iteration   1: 16181.162 us/op
+# Warmup Iteration   2: 16190.753 us/op
+Iteration   1: 16165.994 us/op
+Iteration   2: 16178.358 us/op
+Iteration   3: 16190.274 us/op
+Iteration   4: 16195.372 us/op
+Iteration   5: 16167.547 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  16179.509 ±(99.9%) 50.742 us/op [Average]
+  (min, avg, max) = (16165.994, 16179.509, 16195.372), stdev = 13.178
+  CI (99.9%): [16128.767, 16230.251] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 1.8.0_212, OpenJDK 64-Bit Server VM, 25.212-b01
+# VM invoker: /usr/lib/jvm/java-8-openjdk/jre/bin/java
+# VM options: -javaagent:/opt/intellij-idea-ultimate-edition/lib/idea_rt.jar=37087:/opt/intellij-idea-ultimate-edition/bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 10 s each
+# Measurement: 5 iterations, 45 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: niklas.deworetzki.waidi.Test.test
+# Parameters: (N = 35)
+
+# Run progress: 96.15% complete, ETA 00:04:05
+# Fork: 1 of 1
+# Warmup Iteration   1: 26258.207 us/op
+# Warmup Iteration   2: 26214.437 us/op
+Iteration   1: 26170.805 us/op
+Iteration   2: 26194.702 us/op
+Iteration   3: 26179.933 us/op
+Iteration   4: 26213.073 us/op
+Iteration   5: 26207.181 us/op
+
+
+Result "niklas.deworetzki.waidi.Test.test":
+  26193.139 ±(99.9%) 68.619 us/op [Average]
+  (min, avg, max) = (26170.805, 26193.139, 26213.073), stdev = 17.820
+  CI (99.9%): [26124.520, 26261.758] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:46:27
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark  (N)  Mode  Cnt      Score     Error  Units
+Test.test   10  avgt    5      0.150 ±   0.003  us/op
+Test.test   11  avgt    5      0.242 ±   0.002  us/op
+Test.test   12  avgt    5      0.400 ±   0.010  us/op
+Test.test   13  avgt    5      0.671 ±   0.004  us/op
+Test.test   14  avgt    5      1.054 ±   0.004  us/op
+Test.test   15  avgt    5      1.665 ±   0.006  us/op
+Test.test   16  avgt    5      2.760 ±   0.051  us/op
+Test.test   17  avgt    5      4.362 ±   0.011  us/op
+Test.test   18  avgt    5      7.066 ±   0.010  us/op
+Test.test   19  avgt    5     11.449 ±   0.017  us/op
+Test.test   20  avgt    5     18.725 ±   0.038  us/op
+Test.test   21  avgt    5     30.962 ±   0.053  us/op
+Test.test   22  avgt    5     50.278 ±   0.145  us/op
+Test.test   23  avgt    5     81.457 ±   2.758  us/op
+Test.test   24  avgt    5    131.714 ±   0.904  us/op
+Test.test   25  avgt    5    212.991 ±   1.109  us/op
+Test.test   26  avgt    5    344.772 ±   0.914  us/op
+Test.test   27  avgt    5    558.397 ±   1.187  us/op
+Test.test   28  avgt    5    913.465 ±  60.453  us/op
+Test.test   29  avgt    5   1488.396 ± 180.220  us/op
+Test.test   30  avgt    5   2356.847 ±   5.535  us/op
+Test.test   31  avgt    5   3823.181 ±  94.515  us/op
+Test.test   32  avgt    5   6183.461 ±  15.172  us/op
+Test.test   33  avgt    5   9999.163 ±  25.712  us/op
+Test.test   34  avgt    5  16179.509 ±  50.742  us/op
+Test.test   35  avgt    5  26193.139 ±  68.619  us/op
+
+Process finished with exit code 0

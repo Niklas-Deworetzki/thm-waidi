@@ -50,3 +50,33 @@ def test24(benchmark):
 def test25(benchmark):
 	benchmark(fib, 25)
 
+def test26(benchmark):
+	benchmark(fib, 26)
+
+def test27(benchmark):
+	benchmark(fib, 27)
+
+def test28(benchmark):
+	benchmark(fib, 28)
+
+def test29(benchmark):
+	benchmark(fib, 29)
+
+def test30(benchmark):
+	benchmark(fib, 30)
+
+def test31(benchmark):
+	benchmark(fib, 31)
+
+def test32(benchmark):
+	benchmark(fib, 32)
+
+def test33(benchmark):
+	benchmark(fib, 33)
+
+def test34(benchmark):
+	benchmark(fib, 34)
+
+def test35(benchmark):
+	benchmark(fib, 35)
+
