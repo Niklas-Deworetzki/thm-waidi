@@ -5,6 +5,9 @@ IDX_X = 0
 IDX_Y = 1
 IDX_E = 2
 
+MIN_X = 10
+MAX_X = 35
+
 fibCache = {}
 
 def fib(n):
@@ -73,22 +76,34 @@ def transformData(data):
 
 	During transformation x will be converted into an int whereas
 	y and error are converted into a floating point number.
+
+	This method also filters values according to MIN_X and MAX_X variables.
 	"""
-	x_pos = np.array([int(x) for (x, _, _) in data])
-	y_val = np.array([float(y) for (_, y, _) in data])
-	error = np.array([float(e) for (_, _, e) in data])
-	return (x_pos, y_val, error)
+	x_pos = [int(x) for (x, _, _) in data]
+	y_val = [float(y) for (_, y, _) in data]
+	error = [float(e) for (_, _, e) in data]
+
+	x_pos_n = []
+	y_val_n = []
+	error_n = []
+
+	for i in range(0, len(x_pos)):
+		if x_pos[i] >= MIN_X and x_pos[i] <= MAX_X:
+			x_pos_n.append(x_pos[i])
+			y_val_n.append(y_val[i])
+			error_n.append(error[i])
+
+	return (np.array(x_pos_n), np.array(y_val_n), np.array(error_n))
 
 def drawRawPlot(ax, data, barcolor):
 	(x_pos, y_val, error) = data
-	ax.bar(x_pos - 10, y_val, align='center', color=barcolor, alpha=1)
+	ax.bar(x_pos - MIN_X, y_val, align='center', color=barcolor, alpha=1)
 
 
-plotType = input('Enter type [linear/log]: ')
-plotType = 'linear' if not plotType or not plotType in ['linear', 'log'] else plotType
-
-doNormalizeInp = input('Normalize data? [N/y]: ')
-doNormalize = doNormalizeInp in ['Y', 'y', 'yes']
+plotType = input('Enter type [linear/log]: ') or 'linear'
+doNormalize = input('Normalize data? [N/y]: ') in ['Y', 'y', 'yes']
+MIN_X = int(input("Min X? [" + str(MIN_X) + "]: ") or str(MIN_X))
+MAX_X = int(input("Max X? [" + str(MAX_X) + "]: ") or str(MAX_X))
 
 fig, ax = plt.subplots()
 dataPython  = transformData(readFile('python.result'))
@@ -107,8 +122,8 @@ drawRawPlot(ax, dataPython,  'yellow')
 drawRawPlot(ax, dataHaskell, 'blue')
 drawRawPlot(ax, dataJava,    'firebrick')
 
-ax.set_xticks(np.arange(1 + 25 - 10))
-ax.set_xticklabels([str(n) for n in range(10, 25 + 1)])
+ax.set_xticks(np.arange(1 + MAX_X - MIN_X))
+ax.set_xticklabels([str(n) for n in range(MIN_X, MAX_X + 1)])
 
 ax.set_ylabel('Y Label')
 ax.set_yscale(plotType)
@@ -116,7 +131,7 @@ ax.yaxis.grid(True)
 
 ax.set_title('Plot title')
 
-fileName = 'bars-' + plotType
+fileName = 'bars-' + plotType + str(MIN_X) + '-' + str(MAX_X)
 if(doNormalize):
 	fileName += '-normalized'
 fileName += '.svg'
