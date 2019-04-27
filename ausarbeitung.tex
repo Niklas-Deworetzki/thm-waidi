@@ -12,8 +12,8 @@
 \usepackage[babel]{csquotes}         % Anführungszeichen
 \usepackage{graphicx}                % Graphiken
 \usepackage{booktabs}                % Tabellen schöner
-\usepackage{amsmath} % Mathematik
-\usepackage{amssymb} % Mathematische Symbole
+\usepackage{amsmath}      % Mathematik
+\usepackage{amssymb}      % Mathematische Symbole
 \usepackage[pdftex]{hyperref}       
 \hypersetup{
 	bookmarksopen=true,
@@ -263,6 +263,7 @@ In der Funktion treten nur Ganzzahlen und simple Addition beziehungsweise Subtra
 
 Zu Zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden. Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12.200.160.415.121.876.738$. Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre dauern. Daher kann angenommen werden, dass in diesem Rahmen die Einschränkungen der Ganzzahlen nicht überschritten wird. 
 % REF Schölzels Vorlesung für die Zeiten?
+% TODO O(fib(n)) richtig? 
 
 \section{Implementierungen in den Programmiersprachen}
 
@@ -320,7 +321,39 @@ Aus selbem Grund wie in Java wird auch hier keine \texttt{if}-Anweisung verwende
 
 %TODO Eventuell Text kürzen, damit nur eine Seite entsteht? Pythons Code ist so alleine auf der nächsten Seite.
 
-\section{Notizen}
+% TODO Schönere Überschrift?
+\section{Messergebnisse der Rechenzeiten}
+
+Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun die Rechenzeit bestimmt werden.
+Dazu werden sogenannte Mikrobenchmarks durchgeführt, welche die Zeit messen, die für einen Funktionsaufruf benötigt wird.
+Die Verwendung von Mikrobenchmarks bewirkt, dass die Zeit, die für das Laden und Einrichten eines Programmes benötigt wird, vernachlässigt werden kann und nur die reine Zeit für die Berechnung als Messwert entsteht.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{src/linear-microbench.pdf}
+    \caption{Rechenzeiten (linear)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{src/log-microbench.pdf}
+    \caption{Rechenzeiten (logarithmisch)}
+  \end{minipage}
+\end{figure}
+
+Wie zu sehen ist, benötigt der interpretierte Python-Code die meiste Rechenzeit.
+Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist, als der Bytecode der auf der JVM ausgeführt wird. Zudem wird deutlich, dass die Rechenzeiten als Exponentialfunktion dargestellt werden können, was der theoretischen Laufzeitkomplexität des Algorithmus entspricht.
+
+Auf einer logarithmischen Skala wird eine Exponentialfunktion der Form $f(x) = ae^{bx}$ auf eine lineare Funktion der Form $f'(x) = log(a) + bx * log(e)$ abgebildet.
+Der Faktor $b$ ist mit $b = 1$ anzunehmen, da dieser die Anzahl der rekursiven Aufrufe bestimmt, welche bei jeder Implementierung identisch ist.
+Die Basis $e$ ist konstant und kann daher beim Vergleichen der Rechenzeiten vernachlässigt werden.
+Also bleibt die Darstellung der Rechenzeiten in der Form $f'(x) = log(a) + x$.
+Dadurch wird deutlich, dass die konstanten Abstände in der rechten Abbildung zwischen den Rechenzeiten durch den X-Achsenabschnitt $log(a)$ - also den Faktor $a$ - verursacht werden.
+
+In der Exponentialdarstellung ist der Faktor $a$ Teil der Basis, also ein konstanter Faktor, der bei jedem Funktionsaufruf auftritt.
+Dies beweist also, dass konstante Geschwidingkeitsunterschiede beim ausführen der Rechenoperationen Ursache der unterschiedlichen Rechenzeiten sind.
+
+% TODO Neuer Abschnitt - Wie formatieren?
 
 
 \end{document}
