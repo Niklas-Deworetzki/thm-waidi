@@ -109,7 +109,7 @@ for i in range(len(data)):
 		label=(input('Label for ' + sys.argv[1 + (2 * i)] + ': ') or sys.argv[1 + (2 * i)]))
 	
 plt.ylabel('Rechenzeit in µs')
-plt.xticks(ind + width, [str(n) for n in range(MIN_X, MAX_X + 1)])
+plt.xticks(ind + ((len(data) / 2) - 0.5) * width, [str(n) for n in range(MIN_X, MAX_X + 1)])
 plt.title(input('Titel: ') or 'Rechenzeiten für fib(n)')
 plt.legend(loc='best')
 
