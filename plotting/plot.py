@@ -1,5 +1,8 @@
+#! /usr/bin/python3
+
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 IDX_X = 0
 IDX_Y = 1
@@ -7,36 +10,6 @@ IDX_E = 2
 
 MIN_X = 10
 MAX_X = 35
-
-fibCache = {}
-
-def fib(n):
-	"""Calculates the n-th fibonacci number using a lookup table"""
-	if n <= 2:
-		return 1
-	if n in fibCache:
-		return fibCache[n]
-	fibn = fib(n - 1) + fib(n - 2)
-	fibCache[n] = fibn
-	return fibn
-
-def normalizeFibonacci(data):
-	"""Normalizes the input data using the fibonacci numbers.
-
-	The input data has to be the form of (x, y, error) where
-	y marks the value at a given position x and error is the amount of
-	error for this value:
-
-	f(x) = y ± error
-
-	Now y and error are divided by the x-th fibonacci number:
-
-	f(x) = (y / fib(x)) ± (error / fib(x))
-
-	The returned data has the same format as input.
-	"""
-	return [(x, y / fib(x), e / fib(x)) for (x, y, e) in data]
-
 
 def readFile(filename):
 	"""Reads a data file into memory.
@@ -95,46 +68,50 @@ def transformData(data):
 
 	return (np.array(x_pos_n), np.array(y_val_n), np.array(error_n))
 
-def drawRawPlot(ax, data, barcolor):
-	(x_pos, y_val, error) = data
-	ax.bar(x_pos - MIN_X, y_val, align='center', color=barcolor, alpha=1)
 
+data = []
+
+numBars = len(sys.argv) // 2
+
+for i in range(1, len(sys.argv), 2):
+	sys.stdout.write('\r(' + str(len(data)) + '/' + str(numBars) + ')')
+
+	fileData = readFile(sys.argv[i])
+	fileColor = sys.argv[i + 1]
+	data.append((fileData, fileColor))
+sys.stdout.write('\r')
 
 plotType = input('Enter type [linear/log]: ') or 'linear'
-doNormalize = input('Normalize data? [N/y]: ') in ['Y', 'y', 'yes']
 MIN_X = int(input("Min X? [" + str(MIN_X) + "]: ") or str(MIN_X))
 MAX_X = int(input("Max X? [" + str(MAX_X) + "]: ") or str(MAX_X))
 
-fig, ax = plt.subplots()
-dataPython  = transformData(readFile('python.result'))
-dataHaskell = transformData(readFile('haskell.result'))
-dataJava    = transformData(readFile('java.result'))
+plt.axes(xscale='linear', yscale=plotType)
+if plotType == 'linear':
+	plt.ticklabel_format(axis='y', style='sci', scilimits=(-2,2))
 
-# Divide every y value by the minimal y value.
-if(doNormalize):
-	minY = min([min(data[IDX_Y]) for data in [dataPython, dataHaskell, dataJava]])
-	dataPython  = (dataPython[IDX_X],  dataPython[IDX_Y]  / minY, dataPython[IDX_E]  / minY)
-	dataHaskell = (dataHaskell[IDX_X], dataHaskell[IDX_Y] / minY, dataHaskell[IDX_E] / minY)
-	dataJava    = (dataJava[IDX_X],    dataJava[IDX_Y]    / minY, dataJava[IDX_E]    / minY)
-	
-
-drawRawPlot(ax, dataPython,  'yellow')
-drawRawPlot(ax, dataHaskell, 'blue')
-drawRawPlot(ax, dataJava,    'firebrick')
-
-ax.set_xticks(np.arange(1 + MAX_X - MIN_X))
-ax.set_xticklabels([str(n) for n in range(MIN_X, MAX_X + 1)])
-
-ax.set_ylabel('Y Label')
-ax.set_yscale(plotType)
-ax.yaxis.grid(True)
-
-ax.set_title('Plot title')
 
 fileName = 'bars-' + plotType + str(MIN_X) + '-' + str(MAX_X)
-if(doNormalize):
-	fileName += '-normalized'
+for sourceFileIdx in range(1, len(sys.argv), 2):
+	fileName += '+' + sys.argv[sourceFileIdx].replace('.result', '')
 fileName += '.svg'
+
+for i in range(len(data)):
+	(fileData, fileColor) = data[i]
+	data[i] = (transformData(fileData), fileColor)
+
+
+ind   = np.arange(1 + MAX_X - MIN_X)
+width = 0.85 / numBars
+
+
+for i in range(len(data)):
+	plt.bar(ind + (i * width), data[i][0][IDX_Y], width, color=data[i][1],
+		label=(input('Label for ' + sys.argv[1 + (2 * i)] + ': ') or sys.argv[1 + (2 * i)]))
+	
+plt.ylabel('Rechenzeit in µs')
+plt.xticks(ind + width, [str(n) for n in range(MIN_X, MAX_X + 1)])
+plt.title(input('Titel: ') or 'Rechenzeiten für fib(n)')
+plt.legend(loc='best')
 
 plt.tight_layout()
 plt.savefig(fileName)
