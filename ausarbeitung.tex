@@ -376,6 +376,34 @@ Dies beweist also, dass konstante Geschwidingkeitsunterschiede beim ausführen d
 
 % TODO Neuer Abschnitt - Wie formatieren?
 
+Die tatsächliche Laufzeit eines Programms hängt jedoch nicht alleine von der Zeit ab die für die ausgeführten Funktionen benötigt wird.
+Das Laden und Einrichten der Laufzeitumgebung nach Programmstart, das Laden von Code und Daten sowie die Verwaltung von Speicher ist auch Teil der Laufzeit eines Programms.
+
+Um den Einfluss der anderen Faktoren zu bestimmen, werden die Funktionen aus den vorherigen Kapiteln in ein eigenständiges Programm verpackt, welches eine Zahl als Programmparameter akzeptiert und diese als Argument für den Aufruf der Funktion $fib$ verwendet wird.
+Zwar gibt es leichte Unterschiede in der Art, wie die gewählten Programmiersprachen, die Zeichenketten behandeln, über welche auf die Programmparameter zugegriffen werden kann.
+Jedoch kann der Einfluss einer einzigen Umwandlung zu Programmstart angesichts der mehreren tausend Operationen während der Berechnung vernachlässigt werden.
+
+Wird nun die Laufzeit für die Programme für die selben Eingabezahlen wie bei den Mikrobenchmarks gemessen, entstehen vergleichbare Messwerte.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{src/linear-standalone.pdf}
+    \caption{Rechenzeiten (linear)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{src/log-standalone.pdf}
+    \caption{Rechenzeiten (logarithmisch)}
+  \end{minipage}
+\end{figure}
+
+Sofort fallen Unterschiede in den Verläufen der Rechenzeiten zu den einzelnen Funktionen auf.
+Die Rechenzeit des interpretierten Python-Codes zeigt wieder einen exponentiellen Verlauf.
+Auch die Rechenzeit des kompilierten Haskell-Codes deutet exponentiellen Wachstum an, welcher jedoch kaum erkennbar ist, da der interpretierte Code deutlich langsamer ist.
+Die Rechenzeit des Java-Codes wirkt nahezu konstant mit leichten Schwankungen um einen konstanten Wert.
+Ein Anstieg der Rechenzeit ist hier kaum zu erkennen.
+
 
 \end{document}
 
