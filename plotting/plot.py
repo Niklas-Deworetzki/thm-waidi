@@ -107,10 +107,10 @@ width = 0.85 / numBars
 for i in range(len(data)):
 	plt.bar(ind + (i * width), data[i][0][IDX_Y], width, color=data[i][1],
 		label=(input('Label for ' + sys.argv[1 + (2 * i)] + ': ') or sys.argv[1 + (2 * i)]))
-	
+
 plt.ylabel('Rechenzeit in µs')
 plt.xticks(ind + ((len(data) / 2) - 0.5) * width, [str(n) for n in range(MIN_X, MAX_X + 1)])
-plt.title(input('Titel: ') or 'Rechenzeiten für fib(n)')
+plt.title(input('Titel: ') or '')
 plt.legend(loc='best')
 
 plt.tight_layout()
