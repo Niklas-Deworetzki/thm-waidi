@@ -14,6 +14,7 @@
 \usepackage{booktabs}                % Tabellen schöner
 \usepackage{amsmath}      % Mathematik
 \usepackage{amssymb}      % Mathematische Symbole
+\usepackage{float}
 \usepackage[pdftex]{hyperref}       
 \hypersetup{
 	bookmarksopen=true,
@@ -88,7 +89,7 @@
 \subject{Manusskript}
 \title{Rechenzeitvergleich verschiedener Ausführungsmodelle}
 \subtitle{Kurs \enquote{Wissenschaftliches Arbeiten in der Informatik}}
-\author{Niklas Deworetzki \and THM\thanks{FB MNI Mathematik, Naturwissenschaften, Informatik}}
+\author{Niklas Deworetzki}
 \date{Aktuelles Datum}
 \maketitle
 
@@ -299,7 +300,7 @@ Der Einfachheit halber wird diese Abfrage als einzelner Ausdruck geschrieben.
 \subsection{Haskell}
 
 In Haskell kann die Definition mit Abfrage und rekursivem Aufruf direkt übernommen werden.
-Es muss jedoch die Signatur für die Funktion angegeben werden, um den Typen auf \texttt{Int} zu beschränken, da sonst per Typinferenz der unbegrenzte Ganzzahlentyp \texttt{Integer} gewählt wird.
+Es muss jedoch die Signatur für die Funktion angegeben werden, um den Typen auf \texttt{Int} zu beschränken, da sonst per Typinferenz der unbegrenzte Ganzzahlentyp \texttt{Integer} inferiert wird.
 
 Da mit \texttt{if} in Haskell auch ein Ausdruck und keine Anweisung eingeleitet wird, kann in dieser Sprache sogar der normale \texttt{if}-Syntax verwendet werden, um die Berechnungen des Funktionsfalles als Ausdruck darzustellen.
 
@@ -349,21 +350,29 @@ Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun die
 Dazu werden sogenannte Mikrobenchmarks durchgeführt, welche die Zeit messen, die für einen Funktionsaufruf benötigt wird.
 Die Verwendung von Mikrobenchmarks bewirkt, dass die Zeit, die für das Laden und Einrichten eines Programmes benötigt wird, vernachlässigt werden kann und nur die reine Zeit für die Berechnung als Messwert entsteht.
 
-\begin{figure}[h]
+\begin{minipage}{\linewidth}
   \centering
-  \begin{minipage}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth]{src/linear-microbench.pdf}
-    \caption{Rechenzeiten (linear)}
+  \begin{minipage}{0.45\linewidth}
+    \begin{figure}[H]
+      \includegraphics[width=\textwidth]{src/linear-microbench.pdf}
+      \caption{Rechenzeiten des Mikrobenchmarks (linear)}
+      \label{fig:micro-lin}
+    \end{figure}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth]{src/log-microbench.pdf}
-    \caption{Rechenzeiten (logarithmisch)}
+  \begin{minipage}{0.45\linewidth}
+    \begin{figure}[H]
+      \includegraphics[width=\textwidth]{src/log-microbench.pdf}
+      \caption{Rechenzeiten des Mikrobenchmarks (log)}
+      \label{fig:micro-log}
+    \end{figure}
   \end{minipage}
-\end{figure}
+\end{minipage}
 
-Wie zu sehen ist, benötigt der interpretierte Python-Code die meiste Rechenzeit.
-Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist, als der Bytecode der auf der JVM ausgeführt wird. Zudem wird deutlich, dass die Rechenzeiten als Exponentialfunktion dargestellt werden können, was der theoretischen Laufzeitkomplexität des Algorithmus entspricht.
+
+Wie in Abbildung~\ref{fig:micro-lin} zu sehen ist, benötigt der interpretierte Python-Code die meiste Rechenzeit.
+Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist, als der Bytecode der auf der JVM ausgeführt wird.
+Zudem wird deutlich, dass die Rechenzeiten als Exponentialfunktion dargestellt werden können, was der theoretischen Laufzeitkomplexität des Algorithmus entspricht.
 
 Auf einer logarithmischen Skala wird eine Exponentialfunktion der Form $f(x) = ae^{bx}$ auf eine lineare Funktion der Form $f'(x) = log(a) + bx * log(e)$ abgebildet.
 Der Faktor $b$ ist mit $b = 1$ anzunehmen, da dieser die Anzahl der rekursiven Aufrufe bestimmt, welche bei jeder Implementierung identisch ist.
@@ -401,8 +410,9 @@ Wird nun die Laufzeit für die Programme für die selben Eingabezahlen wie bei d
 Sofort fallen Unterschiede in den Verläufen der Rechenzeiten zu den einzelnen Funktionen auf.
 Die Rechenzeit des interpretierten Python-Codes zeigt wieder einen exponentiellen Verlauf.
 Auch die Rechenzeit des kompilierten Haskell-Codes deutet exponentiellen Wachstum an, welcher jedoch kaum erkennbar ist, da der interpretierte Code deutlich langsamer ist.
-Die Rechenzeit des Java-Codes wirkt nahezu konstant mit leichten Schwankungen um einen konstanten Wert.
+Die Rechenzeit des Java-Codes wirkt nahezu konstant und schwankt leicht um einen Wert.
 Ein Anstieg der Rechenzeit ist hier kaum zu erkennen.
+
 
 
 \end{document}
