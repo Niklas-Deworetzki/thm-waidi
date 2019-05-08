@@ -256,28 +256,37 @@ Es muss lediglich darauf geachtet werden, dass bei den mathematischen Berechnung
 Eine mathematische Folge, die sämtliche oben genannten Kriterien erfüllt, ist die Folge der Fibonacci-Zahlen.
 Eine Zahl aus dieser Folge lässt sich mit folgender Gleichung bestimmen:
 
+\begin{figure}[h]
+  \centering
 $$
 fib _{n} = \left.
   \begin{cases}
-    1 = 1 \\
-    2 = 1 \\
-    n = fib_{n-1} + fib_{n-2}
+    fib_{1} = 1 \\
+    fib_{2} = 1 \\
+    fib_{n} = fib_{n-1} + fib_{n-2}
   \end{cases}
 \right\}
-$$
+$$  
+  \caption{Fibonacci-Reihe rekursiv definiert in allgemeiner Form}
+  \label{fig:fib1}
+\end{figure}
 
 Die Laufzeitkomplexität dieser rekursiven Funktion liegt in $O(2^{n})$ und lässt sich sogar genauer als $\Theta(fib_{n})$ ausdrücken.
 
-Zur Vereinfachung einer Implementierung kann der Definitionsbereich der Funktion $fib$ als $\N^*$ angenommen werden. Dadurch lässt sich die Funktion nur noch mit zwei Funktionsfällen schreiben:
-
+Zur Vereinfachung einer Implementierung kann eine Funktion mit Definitionsbereich $\N^*$ angenommen werden. Ohne negative Parameter lässt sich die Funktion nur noch mit zwei Funktionsfällen schreiben:
+\begin{figure}[h]
+  \centering
 $$
-fib _{n} = \left.
+fib (n) = \left.
   \begin{cases}
     n \leq 2 = 1 \\
-    n = fib_{n-1} + fib_{n-2}
+    n = fib(n-1) + fib(n-2)
   \end{cases}
 \right\}
-$$
+$$  
+  \caption{Fibonacci-Reihe als Funktion mit $\N^*$ als Definitionsbereich}
+  \label{fig:fib2}
+\end{figure}
 
 Diese Umformung verändert die Laufzeitkomplexität der Funktion nicht, da sowohl der Rekursionsschritt unverändert bleibt als auch die Anzahl und Bedingung der Basisfälle.
 
@@ -304,10 +313,15 @@ Es muss jedoch die Signatur für die Funktion angegeben werden, um den Typen auf
 
 Da mit \texttt{if} in Haskell auch ein Ausdruck und keine Anweisung eingeleitet wird, kann in dieser Sprache sogar der normale \texttt{if}-Syntax verwendet werden, um die Berechnungen des Funktionsfalles als Ausdruck darzustellen.
 
+\begin{figure}[h]
+  \centering
 \begin{lstlisting}[language=haskell]
   fib :: Int -> Int
   fib n = if (n <= 2) then 1 else fib (n-1) + fib (n-2)
-\end{lstlisting}
+\end{lstlisting}  
+  \caption{Fibonacci-Serie als Funktion in Haskell}
+  \label{fig:code-haskell}
+\end{figure}
 
 Zwar werden die Argumente der Funktion in Haskell verzögert ausgewertet.
 Jedoch wird die Auswertung in der Abfrage zur Entscheidung des Funktionsfalles erzwungen, wodurch die Eigenheiten der verzögerten Auswertung hier vernachlässigt werden könne.
@@ -322,11 +336,16 @@ Zudem ist es in Java sinnvoll, die Funktion als \texttt{static} zu deklarieren, 
 In Java muss der ternäre Operator verwendet werden, um die Funktionsfälle als einen Ausdruck darzustellen.
 Die Verwendung von \texttt{if} würde zwei verschiedene Anweisungen mit eigenen Ausdrücken erstellen.
 
+\begin{figure}[h]
+  \centering
 \begin{lstlisting}[language=java]
   static long fib(long n) {
     return (n <= 2) ? 1 : fib(n-1) + fib(n-2);
   }
-\end{lstlisting}
+\end{lstlisting}  
+  \caption{Fibonacci-Serie als Funktion in Java}
+  \label{fig:code-java}
+\end{figure}
 
 
 \subsection{Python}
@@ -336,10 +355,15 @@ Eine Angabe von Typen ist in Python nicht nötig, da diese zur Laufzeit bestimmt
 
 Aus selbem Grund wie in Java wird auch hier keine \texttt{if}-Anweisung verwendet zur Auswertung der Funktionsfälle.
 
+\begin{figure}[h]
+  \centering
 \begin{lstlisting}[language=python]
   def fib(n):
 	return 1 if n <= 2 else fib(n-1) + fib(n-2)
-\end{lstlisting}
+\end{lstlisting}  
+  \caption{Fibonacci-Serie als Funktion in Python}
+  \label{fig:code-python}
+\end{figure}
 
 %TODO Eventuell Text kürzen, damit nur eine Seite entsteht? Pythons Code ist so alleine auf der nächsten Seite.
 
@@ -398,12 +422,12 @@ Wird nun die Laufzeit für die Programme für die selben Eingabezahlen wie bei d
   \centering
   \begin{minipage}[b]{0.49\textwidth}
     \includegraphics[width=\textwidth]{src/linear-standalone.pdf}
-    \caption{Rechenzeiten (linear)}
+    \caption{Rechenzeiten des Benchmarks (linear)}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.49\textwidth}
     \includegraphics[width=\textwidth]{src/log-standalone.pdf}
-    \caption{Rechenzeiten (logarithmisch)}
+    \caption{Rechenzeiten des Benchmarks (logarithmisch)}
   \end{minipage}
 \end{figure}
 
