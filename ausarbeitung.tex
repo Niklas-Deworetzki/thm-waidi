@@ -15,7 +15,8 @@
 \usepackage{amsmath}      % Mathematik
 \usepackage{amssymb}      % Mathematische Symbole
 \usepackage{float}
-\usepackage[pdftex]{hyperref}       
+\usepackage[pdftex]{hyperref}
+\usepackage{subcaption}
 \hypersetup{
 	bookmarksopen=true,
 	bookmarksopenlevel=3,
@@ -374,25 +375,23 @@ Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun die
 Dazu werden sogenannte Mikrobenchmarks durchgeführt, welche die Zeit messen, die für einen Funktionsaufruf benötigt wird.
 Die Verwendung von Mikrobenchmarks bewirkt, dass die Zeit, die für das Laden und Einrichten eines Programmes benötigt wird, vernachlässigt werden kann und nur die reine Zeit für die Berechnung als Messwert entsteht.
 
-\begin{minipage}{\linewidth}
+\begin{figure}[h]
   \centering
-  \begin{minipage}{0.45\linewidth}
-    \begin{figure}[H]
-      \includegraphics[width=\textwidth]{src/linear-microbench.pdf}
-      \caption{Rechenzeiten des Mikrobenchmarks (linear)}
-      \label{fig:micro-lin}
-    \end{figure}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.45\linewidth}
-    \begin{figure}[H]
-      \includegraphics[width=\textwidth]{src/log-microbench.pdf}
-      \caption{Rechenzeiten des Mikrobenchmarks (log)}
-      \label{fig:micro-log}
-    \end{figure}
-  \end{minipage}
-\end{minipage}
-
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{src/linear-microbench.pdf}
+    \caption{Lineare Skala}
+    \label{fig:micro-lin}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{src/log-microbench.pdf}
+    \caption{Logarithmische Skala}
+    \label{fig:micro-log}
+  \end{subfigure}
+  \caption{Rechenzeiten von $fib(n)$ im Mikorbenchmark}
+  \label{fig:micro}
+\end{figure}
 
 Wie in Abbildung~\ref{fig:micro-lin} zu sehen ist, benötigt der interpretierte Python-Code die meiste Rechenzeit.
 Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist, als der Bytecode der auf der JVM ausgeführt wird.
@@ -420,16 +419,22 @@ Wird nun die Laufzeit für die Programme für die selben Eingabezahlen wie bei d
 
 \begin{figure}[h]
   \centering
-  \begin{minipage}[b]{0.49\textwidth}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
     \includegraphics[width=\textwidth]{src/linear-standalone.pdf}
-    \caption{Rechenzeiten des Benchmarks (linear)}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.49\textwidth}
+    \caption{Lineare Skala}
+    \label{fig:bench-lin}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
     \includegraphics[width=\textwidth]{src/log-standalone.pdf}
-    \caption{Rechenzeiten des Benchmarks (logarithmisch)}
-  \end{minipage}
+    \caption{Logarithmische Skala}
+    \label{fig:bench-log}
+  \end{subfigure}
+  \caption{Rechenzeiten von $fib(n)$ als eigenständiges Programm}
+  \label{fig:bench}
 \end{figure}
+
 
 Sofort fallen Unterschiede in den Verläufen der Rechenzeiten zu den einzelnen Funktionen auf.
 Die Rechenzeit des interpretierten Python-Codes zeigt wieder einen exponentiellen Verlauf.
