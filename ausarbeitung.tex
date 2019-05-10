@@ -240,7 +240,6 @@ Die Garbage-Collection in Python wird ausgeführt, wenn ein bestimmter Schwellen
 Da Python nur interpretiert ausgeführt wird, wird die Rechenzeit für Programme in Python vermutlich am höchsten sein.
 Zwar gibt es teilweise Just-in-Time Kompilierung für Python Interpreter, jedoch ist diese keineswegs so ausgereift wie bei Java und auch nicht so effizient.
 
-% TODO Zu jeder Sprache den Benchmarking-Framework hinzufügen?
 
 \section{Auswahlkriterien für ein Testprogramm}
 
@@ -259,32 +258,48 @@ Eine Zahl aus dieser Folge lässt sich mit folgender Gleichung bestimmen:
 
 \begin{figure}[h]
   \centering
-$$
-fib _{n} = \left.
-  \begin{cases}
-    fib_{1} = 1 \\
-    fib_{2} = 1 \\
-    fib_{n} = fib_{n-1} + fib_{n-2}
-  \end{cases}
-\right\}
-$$  
+  \begin{gather*}
+    fib _{n} = \left.
+      \begin{cases}
+        fib_{1} = 1 \\
+        fib_{2} = 1 \\
+        fib_{n} = fib_{n-1} + fib_{n-2}
+      \end{cases}
+    \right\}    
+  \end{gather*}
   \caption{Fibonacci-Reihe rekursiv definiert in allgemeiner Form}
   \label{fig:fib1}
 \end{figure}
 
-Die Laufzeitkomplexität dieser rekursiven Funktion liegt in $O(2^{n})$ und lässt sich sogar genauer als $\Theta(fib_{n})$ ausdrücken.
+Die Laufzeitkomplexität dieser rekursiven Funktion liegt in $O(2^{n})$, da für jeden Rechenschritt wieder zwei rekursive Rechenschritte ausgeführt werden müssen, wodurch ein rekursiver Aufrufbaum entsteht.
+Die Höhe dieses Baumes entspricht $n$, da in jeder Ebene der Parameter $n$ um eins verringert wird.
+
+Zu beachten ist jedoch, dass $O(2^{n})$ nicht die engste oberste Schranke für die Berechnung darstellt.
+Der Rechenaufwand $T(n)$ für die $n$-te Fibonacci-Zahl entspricht dem summierten Aufwand für die beiden rekursiven Rechenoperationen und den konstanten Aufwand der Addition.
+\begin{figure}[h]
+  \centering
+  \begin{gather*}
+    T(n) = T(n-1) + T(n-2) + O(1) \\
+    T(n) = O(fib_{n})
+  \end{gather*}
+  \caption{Laufzeitkomplexität zur rekursiven Berechnung der Fibonacci-Zahlen}
+  \label{fig:fib-komplexität}
+\end{figure}
+
+Wie zu sehen ist, entspricht die Laufzeitkomplexität zur Berechnung der $n$-ten Fibonacci-Zahl der $n$-ten Fibonacci-Zahl selbst.
+Die engste obere Schranke ist also als $O(fib_{n})$ zu notieren.
 
 Zur Vereinfachung einer Implementierung kann eine Funktion mit Definitionsbereich $\N^*$ angenommen werden. Ohne negative Parameter lässt sich die Funktion nur noch mit zwei Funktionsfällen schreiben:
 \begin{figure}[h]
   \centering
-$$
-fib (n) = \left.
-  \begin{cases}
-    n \leq 2 = 1 \\
-    n = fib(n-1) + fib(n-2)
-  \end{cases}
-\right\}
-$$  
+  \begin{gather*}
+    fib (n) = \left.
+      \begin{cases}
+        n \leq 2 = 1 \\
+        n = fib(n-1) + fib(n-2)
+      \end{cases}
+    \right\}    
+  \end{gather*}
   \caption{Fibonacci-Reihe als Funktion mit $\N^*$ als Definitionsbereich}
   \label{fig:fib2}
 \end{figure}
@@ -368,8 +383,22 @@ Aus selbem Grund wie in Java wird auch hier keine \texttt{if}-Anweisung verwende
 
 %TODO Eventuell Text kürzen, damit nur eine Seite entsteht? Pythons Code ist so alleine auf der nächsten Seite.
 
-% TODO Schönere Überschrift?
 \section{Messergebnisse der Rechenzeiten}
+
+\subsection{Messmethoden}
+
+Es gibt verschiedene Arten, die Rechenzeiten zu messen.
+Zum einen kann die bloße Rechenzeit für die Funktion bestimmt werden.
+Andererseits hängt die Laufzeit eines Programms nicht nur von der Rechenzeit der Hauptfunktion ab.
+Durch die Einrichtung der Laufzeitumgebung, das Laden der Programmteile und eventuelle Laufzeitoptimierungen entsteht zusätzlicher Rechenaufwand, welcher sich gerade zu Beginn eines Programms bemerkbar macht.
+
+Um die Laufzeit eines ganzen Programms zu bestimmen, muss lediglich das Programm gestartet werden und die Zeitspanne bestimmt werden, die bis zum Beenden des Programms benötigt wird.
+
+Die Rechenzeit der einzelnen Funktion zu bestimmen, benötigt jedoch mehr Aufwand.
+In Haskell muss berücksichtigt werden, dass durch die verzögerte Auswertung das Ergebnis der Berechnung erzwungen werden muss, da ansonsten nur der Auftrag zur Berechnung gespeichert wird und das Programm sich sofort beendet.
+Java und Python benötigen längere Zeit beim % Start/Erster Aufruf -> Längerer Init
+% JVM Optimierungen
+
 
 Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun die Rechenzeit bestimmt werden.
 Dazu werden sogenannte Mikrobenchmarks durchgeführt, welche die Zeit messen, die für einen Funktionsaufruf benötigt wird.
