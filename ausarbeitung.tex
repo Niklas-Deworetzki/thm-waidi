@@ -82,6 +82,9 @@
            {False}{{{\color{alabasterPink}False}}}5
 }
 
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{bib/bibtex.bib}
+
 \begin{document}
 
 \titlehead{\includegraphics[width=\textwidth]{src/Logo_THM_CG_FB06.png}}
@@ -502,8 +505,11 @@ Mit größer werdenden Eingabewerten überwiegt jedoch der Aufwand für die tats
 Da beim Ausführen des kompilierten Haskell-Codes nahezu kein zusätzlicher Rechenaufwand entsteht, liegt weiterhin ein exponentieller Verlauf vor.
 Die benötigte Rechenzeit wird dabei erst ab Eingabewerten von $n \ge 33$ so groß, dass sie der Zeit entspricht, die für das Laden des Python-Interpreters benötigt wird, wodurch sie in Abbildung~\ref{fig:bench} kaum sichtbar ist.
 
-
-
+Auf einer exponentiellen Skala zeigt der Verlauf der von dem Java-Code benötigten Rechenzeiten
+ein interessantes Verhalten.
+Für Eingabewerte von $n = 20$ bis $n = 23$ ist ein leichter, kontinuierlicher Anstieg zu erkennen.
+Ab $n = 24$ jedoch, ist die benötigte Rechenzeit wieder geringer und beginnt von dort an erneut zunehmend anzusteigen.
+Grund für dieses Verhalten ist, dass statistische Optimierungen der JVM erst ab bestimmten Aufrufszahlen ausgeführt werden.
 
 \end{document}
 
@@ -512,4 +518,5 @@ Die benötigte Rechenzeit wird dabei erst ab Eingabewerten von $n \ge 33$ so gro
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
+%%% reftex-default-bibliography: ("./bib/bibtex.bib")
 %%% End:
