@@ -2,3 +2,5 @@
 *.log
 *.out
 *.toc
+*-blx.bib
+*.run.xml
