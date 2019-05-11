@@ -109,9 +109,9 @@
 \section{Moderne Ausführungsmodelle}
 
 Im Folgenden werden verschiedene Ausführungsmodelle diskutiert.
-Ein Ausführungsmodell beschreibt, wie ein Programm aus einer Quellsprache verarbeitet werden muss, um es ausführen zu können.
-Der genaue Ablauf um ein Programm aus einer Quellsprache in eine ausführbare Zielsprache zu transformieren, hängt jedoch stark von der entsprechenden Quellsprache ab.
-% TODO mehr Text? Wie sage ich, dass das nur ein allgemeines Beispiel ist und im einzelnen anders aussehen kann?
+Ein Ausführungsmodell beschreibt, wie ein Programm aus einer Quellsprache transformiert werden muss, um es in eine ausführbare Form zu bringen und wie der Prozess des Ausführens abläuft.
+Der Genaue Ablauf des Transformierens und des Ausführens kann sich dabei stark zwischen einzelnen Quellsprachen unterscheiden.
+Teilweise können mehrere Schritte nötig sein, um eine Quellsprache in eine ausführbare Form zu bringen und auch beim Ausführen selbst kann es Optimierungen geben, die für eine Sprache spezifisch sind.
 
 \subsection{Ausführbarer Maschinencode}
 
@@ -290,6 +290,7 @@ Wie zu sehen ist, entspricht die Laufzeitkomplexität zur Berechnung der $n$-ten
 Die engste obere Schranke ist also als $O(fib_{n})$ zu notieren.
 
 Zur Vereinfachung einer Implementierung kann eine Funktion mit Definitionsbereich $\N^*$ angenommen werden. Ohne negative Parameter lässt sich die Funktion nur noch mit zwei Funktionsfällen schreiben:
+
 \begin{figure}[h]
   \centering
   \begin{gather*}
@@ -310,7 +311,6 @@ In der Funktion treten nur Ganzzahlen und simple Addition beziehungsweise Subtra
 
 Zu Zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden. Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12.200.160.415.121.876.738$. Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre dauern. Daher kann angenommen werden, dass in diesem Rahmen die Einschränkungen der Ganzzahlen nicht überschritten wird. 
 % REF Schölzels Vorlesung für die Zeiten?
-% TODO O(fib(n)) richtig? 
 
 \section{Implementierungen in den Programmiersprachen}
 
@@ -393,16 +393,37 @@ Andererseits hängt die Laufzeit eines Programms nicht nur von der Rechenzeit de
 Durch die Einrichtung der Laufzeitumgebung, das Laden der Programmteile und eventuelle Laufzeitoptimierungen entsteht zusätzlicher Rechenaufwand, welcher sich gerade zu Beginn eines Programms bemerkbar macht.
 
 Um die Laufzeit eines ganzen Programms zu bestimmen, muss lediglich das Programm gestartet werden und die Zeitspanne bestimmt werden, die bis zum Beenden des Programms benötigt wird.
+Eine solche Art der Messung wird ``Benchmark'' genannt.
 
 Die Rechenzeit der einzelnen Funktion zu bestimmen, benötigt jedoch mehr Aufwand.
+In einem sogenannten ``Mikrobenchmark'' muss Code erzeugt werden, welcher die zu untersuchende Funktion aufruft und dabei die Zeit für deren Ausführung stoppt.
+Da die Ausführung eines Programms nicht immer linear abläuft, gibt es vorgefertigte Bibliotheken, welche helfen, die Eigenheiten der jeweiligen Programmiersprache in Mikrobenchmarks zu beachten. 
+
 In Haskell muss berücksichtigt werden, dass durch die verzögerte Auswertung das Ergebnis der Berechnung erzwungen werden muss, da ansonsten nur der Auftrag zur Berechnung gespeichert wird und das Programm sich sofort beendet.
-Java und Python benötigen längere Zeit beim % Start/Erster Aufruf -> Längerer Init
-% JVM Optimierungen
+Hier bietet Criterion die Möglichkeit, die Auswertung von Ausdrücken in die Normalform zu erzwingen.
+% REF Criterion
+% REF WHNF
+
+Python besitzt eine gewissen Anlaufzeit, in welcher der Interpreter gestartet wird.
+Zudem wird ein Codeblock beim ersten Ausführen zunächst in den Hauptspeicher geladen und auf syntaktische und semantische Korrektheit überprüft, bevor er in dieser Form gespeichert und tatsächlich ausgeführt werden kann.
+Pytest-Benchmark eignet sich hier, um das sogenannte Aufwärmen der getesteten Funktionen zu übernehmen und die Zeiten zu messen.
+%REF pytest-benchmark
+
+Ein Mikrobenchmark in Java durchzuführen bringt die größten Herausforderungen mit sich.
+Ähnlich wie in Python muss vor dem ersten Aufruf einer Funktion die Klasse, welche die Funktion enthält, geladen werden.
+Während des Ladens einer Klasse muss diese auch validiert werden, was zusätzlichen Rechenaufwand benötigt.
+Ein Aufwärmen der Funktionen kann jedoch auch die Messwerte verfälschen, da nach der ersten Ausführung einer Funktion der Just-in-Time-Mechanismus der JVM beginnt, den ausgeführten Code zu optimieren.
+Beispielsweise werden seiteneffektfreie Berechnungen, deren Ergebnis nicht weiter verwendet wird, aus dem Code entfernt.
+Mit JMH gibt es auch hier eine Bibliothek, die das Aufwärmen und Verwalten der Mikrobenchmarks übernimmt.
+Zudem bietet diese Bibliothek sogenannte ``Schwarze Löcher'', die das Ergebnis einer Berechnung verschlucken können und so einen Seiteneffekt einführen, der das Wegoptimieren von Berechnungen verhindert.
+%REF JMH
 
 
-Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun die Rechenzeit bestimmt werden.
-Dazu werden sogenannte Mikrobenchmarks durchgeführt, welche die Zeit messen, die für einen Funktionsaufruf benötigt wird.
-Die Verwendung von Mikrobenchmarks bewirkt, dass die Zeit, die für das Laden und Einrichten eines Programmes benötigt wird, vernachlässigt werden kann und nur die reine Zeit für die Berechnung als Messwert entsteht.
+\subsection{Ergebnisse der Mikrobenchmarks}
+
+Aus den definierten Funktionen in den konkreten Programmiersprachen kann nun in Mikrobenchmarks die Rechenzeit bestimmt werden.
+Diese Zeiten zeigen die reine Rechenzeit für die gegebenen Berechnungen.
+Da die benötigte Rechenzeit für die einzelnen Berechnungen sehr gering ist, müssen entsprechend viele Iterationen des Mikrobenchmarks durchgeführt werden, um signifikante Messwerte zu erhalten.
 
 \begin{figure}[h]
   \centering
@@ -423,7 +444,7 @@ Die Verwendung von Mikrobenchmarks bewirkt, dass die Zeit, die für das Laden un
 \end{figure}
 
 Wie in Abbildung~\ref{fig:micro-lin} zu sehen ist, benötigt der interpretierte Python-Code die meiste Rechenzeit.
-Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist, als der Bytecode der auf der JVM ausgeführt wird.
+Schneller als der Python-Code ist der kompilierte Maschinencode von Haskell, welcher dennoch etwas langsamer ist als der Bytecode, der auf der JVM ausgeführt wird.
 Zudem wird deutlich, dass die Rechenzeiten als Exponentialfunktion dargestellt werden können, was der theoretischen Laufzeitkomplexität des Algorithmus entspricht.
 
 Auf einer logarithmischen Skala wird eine Exponentialfunktion der Form $f(x) = ae^{bx}$ auf eine lineare Funktion der Form $f'(x) = log(a) + bx * log(e)$ abgebildet.
@@ -433,12 +454,12 @@ Also bleibt die Darstellung der Rechenzeiten in der Form $f'(x) = log(a) + x$.
 Dadurch wird deutlich, dass die konstanten Abstände in der rechten Abbildung zwischen den Rechenzeiten durch den X-Achsenabschnitt $log(a)$ - also den Faktor $a$ - verursacht werden.
 
 In der Exponentialdarstellung ist der Faktor $a$ Teil der Basis, also ein konstanter Faktor, der bei jedem Funktionsaufruf auftritt.
-Dies beweist also, dass konstante Geschwidingkeitsunterschiede beim ausführen der Rechenoperationen Ursache der unterschiedlichen Rechenzeiten sind.
+Dies beweist also, dass konstante Geschwindigkeitsunterschiede beim Ausführen der Rechenoperationen Ursache der unterschiedlichen Rechenzeiten sind.
 
-% TODO Neuer Abschnitt - Wie formatieren?
+\subsection{Ergebnisse des Benchmarks der eigenständigen Programme}
 
-Die tatsächliche Laufzeit eines Programms hängt jedoch nicht alleine von der Zeit ab die für die ausgeführten Funktionen benötigt wird.
-Das Laden und Einrichten der Laufzeitumgebung nach Programmstart, das Laden von Code und Daten sowie die Verwaltung von Speicher ist auch Teil der Laufzeit eines Programms.
+Die tatsächliche Laufzeit eines Programms hängt jedoch nicht alleine von der Zeit ab, die für das Ausführen der einzelnen Funktionen benötigt wird.
+Weitere Faktoren, welche die Laufzeit bestimmen, sind das Laden des Programms, das Einrichten der Laufzeitumgebung und eventuelle Prüfungen sowie Optimierungen des ausgeführten Codes.
 
 Um den Einfluss der anderen Faktoren zu bestimmen, werden die Funktionen aus den vorherigen Kapiteln in ein eigenständiges Programm verpackt, welches eine Zahl als Programmparameter akzeptiert und diese als Argument für den Aufruf der Funktion $fib$ verwendet wird.
 Zwar gibt es leichte Unterschiede in der Art, wie die gewählten Programmiersprachen, die Zeichenketten behandeln, über welche auf die Programmparameter zugegriffen werden kann.
@@ -465,11 +486,22 @@ Wird nun die Laufzeit für die Programme für die selben Eingabezahlen wie bei d
 \end{figure}
 
 
-Sofort fallen Unterschiede in den Verläufen der Rechenzeiten zu den einzelnen Funktionen auf.
-Die Rechenzeit des interpretierten Python-Codes zeigt wieder einen exponentiellen Verlauf.
-Auch die Rechenzeit des kompilierten Haskell-Codes deutet exponentiellen Wachstum an, welcher jedoch kaum erkennbar ist, da der interpretierte Code deutlich langsamer ist.
-Die Rechenzeit des Java-Codes wirkt nahezu konstant und schwankt leicht um einen Wert.
-Ein Anstieg der Rechenzeit ist hier kaum zu erkennen.
+Sofort fallen in Abbildung~\ref{fig:bench-lin} Unterschiede zu den Rechenzeiten der einzelnen Funktionen aus Abbildung~\ref{fig:micro-lin} auf.
+Haskell ist mit Abstand am schnellsten, wobei alle Fibonacci-Zahlen nahezu ohne Zeitaufwand berechnet werden.
+In Abbildung~\ref{fig:bench-lin} zeigt die Rechenzeit des Java-Codes einen nahezu konstanten Verlauf auf.
+Lediglich die Rechenzeit des interpretierten Python-Codes scheint erneut exponentiell zu verlaufen.
+
+Wieder werden in Abbildung~\ref{fig:bench-log} die Rechenzeiten auf einer logarithmischen Skala dargestellt.
+
+Bei den Rechenzeiten des Python-Codes fällt dadurch auf, dass kein kontinuierlicher Anstieg der Rechenzeiten entsteht.
+Dies liegt an der konstanten Zeit, die durch das Laden des Programms und des Interpreters entsteht.
+Da diese Zeit bei jeder Ausführung präsent ist, tritt für Berechnungen mit kleinen Eingabewerten der Aufwand für die tatsächliche Berechnung in den Hintergrund.
+Dies bewirkt den zunächst flach ansteigenden Verlauf der Rechenzeiten.
+Mit größer werdenden Eingabewerten überwiegt jedoch der Aufwand für die tatsächlichen Berechnungen, wodurch der typische exponentielle Verlauf entsteht.
+
+Da beim Ausführen des kompilierten Haskell-Codes nahezu kein zusätzlicher Rechenaufwand entsteht, liegt weiterhin ein exponentieller Verlauf vor.
+Die benötigte Rechenzeit wird dabei erst ab Eingabewerten von $n \ge 33$ so groß, dass sie der Zeit entspricht, die für das Laden des Python-Interpreters benötigt wird, wodurch sie in Abbildung~\ref{fig:bench} kaum sichtbar ist.
+
 
 
 
