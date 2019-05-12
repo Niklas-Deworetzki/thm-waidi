@@ -100,7 +100,11 @@
 \vspace*{1.5cm}
 \section*{\centerline{Zusammenfassung}}
 
-% TODO
+Diese Arbeit befasst sich mit den Unterschieden in der Rechenzeit herkömmlicher Ausführungsmodelle.
+Dabei werden die Programmiersprachen Haskell, Java und Python verwendet, die stellvertretend für die drei verschiedenen Ausführungsmodelle ``kompilierter Maschinencode'', ``spezifischer Zwischencode für eine virtuelle Maschine'' und ``interpretierter Quellcode'' stehen.
+Der Fokus liegt dabei auf der Rechenzeit, die für das Ausführen der Berechnungen oder eines ganzen Programms benötigt wird.
+Vor- und Nachteile der jeweiligen Sprachen und benötigten Sprachtransformationen werden nur für die Interpretation der Messwerte herangezogen.
+Ergebnis dieser Arbeit ist, dass kein Ausführungsmodell generell als überlegen bezeichnet werden kann und je nach Anspruch der Berechnungen die Vor- und Nachteile eines Ausführungsmodells abegwägt werden müssen.                                                             
 
 \newpage
 
@@ -108,31 +112,28 @@
 \tableofcontents
 \newpage
 
-% TODO Aktuell?
 \section{Moderne Ausführungsmodelle}
 
 Im Folgenden werden verschiedene Ausführungsmodelle diskutiert.
 Ein Ausführungsmodell beschreibt, wie ein Programm aus einer Quellsprache transformiert werden muss, um es in eine ausführbare Form zu bringen und wie der Prozess des Ausführens abläuft.
-Der Genaue Ablauf des Transformierens und des Ausführens kann sich dabei stark zwischen einzelnen Quellsprachen unterscheiden.
-Teilweise können mehrere Schritte nötig sein, um eine Quellsprache in eine ausführbare Form zu bringen und auch beim Ausführen selbst kann es Optimierungen geben, die für eine Sprache spezifisch sind.
+Einzelheiten des Transformierens sowie des Ausführens können sich dabei zwischen den konkreten Quellsprachen stark unterscheiden, wodurch nur eine allgemeine Diskussion möglich ist.
 
 \subsection{Ausführbarer Maschinencode}
 
 Das erste hier diskutierte Ausführungsmodell ist Maschinencode, welcher in direkt ausführbaren Dateien gespeichert wird.
-Programmiersprachen wie C, C++ oder auch Haskell werden normalerweise zu einer einzigen ausführbaren Datei kompiliert, die das ursprüngliche Programm in Form von plattformabhängigen Maschinencode enthält.
+Programmiersprachen wie C, C++ oder auch Haskell werden normalerweise zu ausführbaren Dateien kompiliert, die das ursprüngliche Programm in Form von plattformabhängigen Instruktionen enthält.
+Diese Instruktionen können direkt in den Hauptspeicher geladen und dort vom entsprechenden Prozessor ausgeführt werden.
 
-Dieses Modell ermöglicht ein sehr effizientes Ausführen, da ein Programm direkt gestartet werden kann, ohne auf abhängige Prozesse oder Umgebungen warten zu müssen.
-Zudem ermöglicht der Maschinencode die effiziente Nutzung der zu Verfügung stehenden Ressourcen auf der jeweiligen Plattform, wodurch kompilierte Programme normalerweise sehr schnell sind und wenig Arbeitsspeicher benötigen.
-Durch das Kompilieren wird Code mehreren Analyseschritten unterzogen, die zum einen Optimierungen ermöglichen, was sowohl Performance als auch Ressourcenverbrauch zusätzlich verbesern kann.
-Andererseits ist es durch diese Analyseschritte auch möglich, Programmierfehler vorab zu erkennen.
-So kann überprüft werden, ob die Parameteranzahl von aufgerufenen Routinen im Code korrekt ist, es kann auf falsch geschriebene oder unbenutzte Bezeichner hingewiesen werden und durch Analyse des Programmflusses ist es möglich, Rechenfehler oder illegale Indexzugriffe vorab zu erkennen.
+Dieses Modell ermöglicht ein sehr effizientes Ausführen, da nach dem Laden der Instruktionen in den Hauptspeicher direkt mit der Ausführung eines Programms begonnen werden kann, ohne auf abhängige Prozesse oder Umgebungen warten zu müssen.
+Zudem können plattformabhängige Ressourcen effizient genutzt werden, da der Maschinencode speziell auf diese zugeschnitten wird, wodurch kompilierte Programme normalerweise sehr schnell sind und wenig Arbeitsspeicher benötigen.
+Durch das Kompilieren wird Code der Quellsprache mehreren Analyseschritten unterzogen, die Optimierungen ermöglichen, was sowohl Geschwindigkeit als auch Ressourcenverbrauch zusätzlich verbessern kann.
+Durch diese Analyseschritte ist es auch möglich, Programmierfehler vorab zu erkennen.
 
-
-Als Nachteil bei diesem Modell muss jedoch der verhältnismäßig hohe Aufwand bei der Codeerzeugung beachtet werden.
-Das Backend eines Compilers für eine kompilierte Sprache muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenspezifischen Prozessoranweisungen auch nutzen zu können.
+Als Nachteil bei diesem Modell muss jedoch der verhältnismäßig hohe Aufwand bei der Erzeugung des Maschinencodes beachtet werden.
+Ein Compiler muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenspezifischen Prozessoranweisungen auch nutzen zu können.
 Ein anderer Nachteil wird bei der Softwareentwicklung deutlich.
-Änderungen müssen immer zuerst neu kompiliert werden, sodass die Entwicklung verlangsamt wird.
-Zudem ist es schwerer, Fehler zu debuggen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur der Anweisungen sehr unterschiedlich zum Quellcode sein kann. %TODO nicht nur Fehler debuggen
+Änderungen führen immer einen neuen Kompiliervorgang mit sich, wodurch die Entwicklung verlangsamt wird.
+Zudem ist es schwerer, Fehler während der Laufzeit ausfindig zu machen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur der Anweisungen sehr unterschiedlich zum Quellcode sein kann.
 Zudem wird die Verfügbarkeit einiger höherer Sprachfeatures eingeschränkt.
 Beispielsweise wird die Introspektion ohne eine Laufzeitumgebung nur dadurch möglich, dass zu allen Instanzen bereits zur Kompilierzeit Typinformationen abgelegt werden.
 In C++ können für diesen Zweck Präprozessoranweisungen verwendet werden, mit deren Hilfe der Programmierer im Quellcode die benötigten Zusatzinformationen über Typen und Namen der Instanzvariablen selbst in entsprechende Strukturen eintragen kann.
@@ -510,6 +511,17 @@ ein interessantes Verhalten.
 Für Eingabewerte von $n = 20$ bis $n = 23$ ist ein leichter, kontinuierlicher Anstieg zu erkennen.
 Ab $n = 24$ jedoch, ist die benötigte Rechenzeit wieder geringer und beginnt von dort an erneut zunehmend anzusteigen.
 Grund für dieses Verhalten ist, dass statistische Optimierungen der JVM erst ab bestimmten Aufrufszahlen ausgeführt werden.
+Wird eine Funktion sehr häufig aufgerufen, so kann der Just-in-time-Mechanismus der JVM Aufrufe und deren Ergebnis zwischenspeichern.
+Da $fib$ mit kleinzahligen Argumenten sehr häufig aufgerufen wird und die Funktion keine Seiteneffekte enthält, kann das Ergebnis eines Aufrufs gespeichert werden, um eine erneute Berechnung zu vermeiden.
+Durch diese Optimierung bleibt zwar die exponentielle Laufzeitkomplexität der Funktion erhalten, jedoch wird die Basis verringert, was dazu führt, dass die benötigte Zeit ebenso reduziert wird.
+
+\section{Fazit}
+
+Bei der Wahl eines Ausführungsmodells für die Implementierung einer Berechnung gibt es keine optimale Empfehlung.
+Zwar ist erkennbar, dass mit zunehmendem Abstraktionsgrad die Rechengeschwindigkeit sinkt, wodurch es zu empfehlen ist, den Abstraktionsgrad für eine Implementierung nur so hoch zu wählen, wie es tatsächlich nötig ist, da durch weitere Abstraktionen Geschwindigkeitseinbuße in Kauf genommen werden müssen.
+Letztendlich zeigen die Messergebnisse in dieser Arbeit, dass nicht etwa das maschinennahe Implementieren einer Berechnung den größten Einfluss auf die Rechenzeit hat, sondern die Optimierungen, die vor und während der Berechnung angewandt werden können.
+Ein höherer Abstraktionsgrad bewirkt dabei, dass es mehr Möglichkeiten gibt, Optimierungen durchzuführen, was besonders bei der JVM erkennbar wird, welche die komplette Laufzeit der ausgeführten Berechnungen kontrolliert.
+Folglich ist die Wahl des Ausführungsmodells zweitrangig und es sollte der Fokus darauf gelegt werden, eine Programmiersprache mit guter Unterstützung für Optimierungen zu wählen.
 
 \end{document}
 
@@ -518,5 +530,4 @@ Grund für dieses Verhalten ist, dass statistische Optimierungen der JVM erst ab
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
-%%% reftex-default-bibliography: ("./bib/bibtex.bib")
 %%% End:
