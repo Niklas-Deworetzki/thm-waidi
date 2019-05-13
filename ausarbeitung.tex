@@ -17,6 +17,7 @@
 \usepackage{float}
 \usepackage[pdftex]{hyperref}
 \usepackage{subcaption}
+\usepackage{url}
 \hypersetup{
   bookmarksopen=true,
   bookmarksopenlevel=3,
@@ -107,6 +108,22 @@ Ergebnis dieser Arbeit ist, dass kein Ausführungsmodell generell als überlegen
 
 \tableofcontents
 \newpage
+
+\section{Einleitung}
+
+Bei der Implementierung eines Algorithmus ist es häufig wichtig, dass dieser möglichst wenig Rechenzeit benötigt, damit dieser auch für große Eingabewerte in annehmbarer Zeit ein Ergebnis liefert.
+Oft werden daher als Ausführungsmodell kompilierte Maschineninstruktionen gewählt, in der Hoffnung eine geringere Rechenzeit zu erhalten.
+Dabei geht jedoch häufig der Zugriff auf Features der höheren Abstraktionsebenen verloren, die bei interpretiertem Quellcode oder der Ausführung von Zwischencode auf einer virtuellen Maschine verfügbar sind.
+Der Frage, ob sich dieser Kompromiss lohnt, wird in dieser Arbeit anhand konkreter Rechenzeiten diskutiert.
+
+Dabei werden zunächst die allgemeinen Vor- und Nachteile der verschiedenen Ausführungsmodelle angeführt und versucht ein gemeinsamer Nenner zu finden, der als Grundlage für den Vergleich der Modelle dienen soll.
+Als Vertreter der Ausführungsmodelle werden Haskell, Java und Python gewählt.
+Quellcode in Haskell wird zu nativen Maschineninstruktionen kompiliert, während Quellcode in Java zu einem speziellen Zwischencode kompiliert wird, der für die ``Java Virtual Machine'' optimiert ist.
+Python kann Quellcode mit Hilfe eines Interpreters in unveränderter Form ausführen.
+Als Grundlage für einen Vergleich bietet sich die Berechnung der Fibonacci-Zahlen an.
+Die benötigte Rechenzeit zum bestimmen der Fibonacci-Zahlen wird in dieser Arbeit auf zwei Arten bestimmt.
+Es wird nicht nur die bloße Rechenzeit der Funktionen gemessen, sondern auch die Zeit, die für das Starten, Laden und Einrichten der Laufzeitumgebung benötigt wird, da diese Faktoren zusätzlich einen Einfluss auf die Laufzeit einer Berechnung hat.
+
 
 \section{Moderne Ausführungsmodelle}
 
@@ -232,17 +249,13 @@ Da Python nur interpretiert ausgeführt wird, wird die Rechenzeit für Programme
 Zwar gibt es teilweise Just-in-Time Kompilierung für Python Interpreter, jedoch ist diese keineswegs so ausgereift wie bei Java.
 
 
-\section{Auswahlkriterien für ein Testprogramm}
+\section{Auswahl eines Testprogramms}
 
 Aus dem vorherigen Vergleich wird deutlich, dass alle gewählten Sprachen über einen ganzzahligen Datentypen verfügen, der eine Größe von 64-Bit besitzt oder zumindest für diese Größe optimiert ist.
-Zudem besitzen alle Sprachen über eine automatische Speicherverwaltung, wodurch eventuelle Geschwindigkeitsvor- oder Nachteile durch manuelle Speicherverwaltung wegfallen.
-
+Zudem besitzen alle Sprachen eine automatische Speicherverwaltung, wodurch eventuelle Geschwindigkeitsvor- oder Nachteile durch manuelle Speicherverwaltung wegfallen.
 Aufgrund dieser Tatsachen kann ein Testprogramm zum Vergleichen der Programmiersprachen auf eine mathematische Problemstellung reduziert werden, da mathematische Formeln und Ausdrücke direkt in die einzelnen Programmiersprachen übertragen werden können, ohne auf große Unterschiede in den Kapazitäten der einzelnen Sprachen zu stoßen.
-
 Es muss lediglich darauf geachtet werden, dass bei den mathematischen Berechnungen der Zahlenraum nicht überschritten wird, der durch die 64-Bit Ganz- oder Gleitkommazahlen festgelegt wird.
 
-
-\subsection{Fibonacci}
 
 Eine mathematische Folge, die sämtliche oben genannten Kriterien erfüllt, ist die Folge der Fibonacci-Zahlen.
 Eine Zahl aus dieser Folge lässt sich mit der Gleichung aus Abbildung~\ref{fig:fib1} bestimmen.
@@ -497,17 +510,25 @@ Durch diese Optimierung bleibt zwar die exponentielle Laufzeitkomplexität der F
 
 \section{Fazit}
 
-Bei der Wahl eines Ausführungsmodells für die Implementierung einer Berechnung gibt es keine optimale Empfehlung.
-Zwar ist erkennbar, dass mit zunehmendem Abstraktionsgrad die Rechengeschwindigkeit sinkt, wodurch es zu empfehlen ist, den Abstraktionsgrad für eine Implementierung nur so hoch zu wählen, wie es tatsächlich nötig ist, da durch weitere Abstraktionen Geschwindigkeitseinbuße in Kauf genommen werden müssen.
+Wie die Messergebnisse gezeigt haben, gibt es bei der Wahl eines Ausführungsmodells für die Implementierung einer Berechnung keine optimale Empfehlung.
+Es ist erkennbar, dass mit zunehmendem Abstraktionsgrad die Rechengeschwindigkeit sinkt.
+Deutlich wird dies bei dem interpretierten Pyton-Code, bei welchem durch den hohen Abstraktionsgrad einzelne Anweisungen nicht direkt in Maschinenanweisungen umgesetzt werden können.
+Daher ist zu empfehlen, den Abstraktionsgrad nur so hoch zu wählen, wie es für die Implementierung nötig ist.
+Weitere Abstraktionen führen nur zu Geschwindigkeitseinbußen bei der Ausführung.
 Jedoch zeigen die Messergebnisse in dieser Arbeit, dass nicht etwa das maschinennahe Implementieren einer Berechnung den größten Einfluss auf die Rechenzeit hat, sondern die Optimierungen, die vor und während der Laufzeit angewandt werden können.
-Ein höherer Abstraktionsgrad bewirkt dabei, dass es mehr Möglichkeiten gibt, Optimierungen durchzuführen, was besonders bei der JVM erkennbar wird, welche die komplette Laufzeit der ausgeführten Berechnungen kontrolliert.
-Folglich ist die Wahl des Ausführungsmodells zweitrangig und es sollte der Fokus darauf gelegt werden, eine Programmiersprache mit guter Unterstützung für Optimierungen zu wählen.
+Dies wird bei der von Java benötigten Rechenzeit deutlich.
+Die Laufzeitumgebung kann dort den ausgeführten Code während der Laufzeit optimieren, wodurch die benötigte Rechenzeit stark reduziert wird.
+Durch diese Optimierungen wird sogar die Rechenzeit der kompilierten Maschineninstruktionen unterboten, welche herkömmlicherweise als schnellstes Ausführungsmodell gesehen werden.
+Hierbei bewirkt der höhere Abstraktionsgrad von Java, dass es mehr Möglichkeiten zur Optimierung gibt.
+
+Folglich bestimmt nicht die Wahl des Ausführungsmodells beim Implementieren einer Berechnung über die benötigte Rechenzeit.
+Vielmehr sollte der Fokus darauf gelegt werden, dass die Quellsprache eine weite Reihe an Optimierungen unterstützt, welche die benötigte Rechenzeit verbessern.
+Die positiven Auswirkungen von Optimierungen übersteigen dabei die kosten eines höheren Abstraktionsgrads.
 
 \newpage
 
 \bibliography{bib/bibtex}{}
 \bibliographystyle{plain}
-\bibliographystyle{unsrt}
 
 \end{document}
 
