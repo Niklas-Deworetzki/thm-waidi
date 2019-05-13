@@ -92,7 +92,7 @@
 \title{Rechenzeitvergleich verschiedener Ausführungsmodelle}
 \subtitle{Kurs \enquote{Wissenschaftliches Arbeiten in der Informatik}}
 \author{Niklas Deworetzki}
-\date{Aktuelles Datum}
+\date{13. Mai 2019}
 \maketitle
 
 \vspace*{1.5cm}
@@ -249,7 +249,7 @@ Da Python nur interpretiert ausgeführt wird, wird die Rechenzeit für Programme
 Zwar gibt es teilweise Just-in-Time Kompilierung für Python Interpreter, jedoch ist diese keineswegs so ausgereift wie bei Java.
 
 
-\section{Auswahl eines Testprogramms}
+\section{Auswahl einer Testfunktion}
 
 Aus dem vorherigen Vergleich wird deutlich, dass alle gewählten Sprachen über einen ganzzahligen Datentypen verfügen, der eine Größe von 64-Bit besitzt oder zumindest für diese Größe optimiert ist.
 Zudem besitzen alle Sprachen eine automatische Speicherverwaltung, wodurch eventuelle Geschwindigkeitsvor- oder Nachteile durch manuelle Speicherverwaltung wegfallen.
@@ -511,8 +511,8 @@ Durch diese Optimierung bleibt zwar die exponentielle Laufzeitkomplexität der F
 \section{Fazit}
 
 Wie die Messergebnisse gezeigt haben, gibt es bei der Wahl eines Ausführungsmodells für die Implementierung einer Berechnung keine optimale Empfehlung.
-Es ist erkennbar, dass mit zunehmendem Abstraktionsgrad die Rechengeschwindigkeit sinkt.
-Deutlich wird dies bei dem interpretierten Pyton-Code, bei welchem durch den hohen Abstraktionsgrad einzelne Anweisungen nicht direkt in Maschinenanweisungen umgesetzt werden können.
+Es jedoch ist erkennbar, dass mit zunehmendem Abstraktionsgrad die Rechengeschwindigkeit sinkt.
+Deutlich wird dies am interpretierten Python-Code, bei dem durch den hohen Abstraktionsgrad einzelne Anweisungen nicht direkt in Maschinenanweisungen umgesetzt werden können.
 Daher ist zu empfehlen, den Abstraktionsgrad nur so hoch zu wählen, wie es für die Implementierung nötig ist.
 Weitere Abstraktionen führen nur zu Geschwindigkeitseinbußen bei der Ausführung.
 Jedoch zeigen die Messergebnisse in dieser Arbeit, dass nicht etwa das maschinennahe Implementieren einer Berechnung den größten Einfluss auf die Rechenzeit hat, sondern die Optimierungen, die vor und während der Laufzeit angewandt werden können.
@@ -523,7 +523,9 @@ Hierbei bewirkt der höhere Abstraktionsgrad von Java, dass es mehr Möglichkeit
 
 Folglich bestimmt nicht die Wahl des Ausführungsmodells beim Implementieren einer Berechnung über die benötigte Rechenzeit.
 Vielmehr sollte der Fokus darauf gelegt werden, dass die Quellsprache eine weite Reihe an Optimierungen unterstützt, welche die benötigte Rechenzeit verbessern.
-Die positiven Auswirkungen von Optimierungen übersteigen dabei die kosten eines höheren Abstraktionsgrads.
+Die positiven Auswirkungen von Optimierungen übersteigen dabei die kosten eines höheren Abstraktionsgrades.
+Gerade wenn Berechnungen komplexer werden und über einen längeren Zeitraum laufen, kann die Zeit, die zum Initialisieren der Laufzeitumgebung benötigt wird, vernachlässigt werden.
+
 
 \newpage
 
