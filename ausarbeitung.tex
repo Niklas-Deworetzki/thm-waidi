@@ -111,17 +111,17 @@ Ergebnis dieser Arbeit ist, dass kein Ausführungsmodell generell als überlegen
 
 \section{Einleitung}
 
-Bei der Implementierung eines Algorithmus ist es häufig wichtig, dass dieser möglichst wenig Rechenzeit benötigt, damit dieser auch für große Eingabewerte in annehmbarer Zeit ein Ergebnis liefert.
+Bei der Implementierung eines Algorithmus ist es häufig wichtig, dass dieser möglichst wenig Rechenzeit benötigt, damit er auch für große Eingabewerte in annehmbarer Zeit ein Ergebnis liefert.
 Oft werden daher als Ausführungsmodell kompilierte Maschineninstruktionen gewählt, in der Hoffnung eine geringere Rechenzeit zu erhalten.
 Dabei geht jedoch häufig der Zugriff auf Features der höheren Abstraktionsebenen verloren, die bei interpretiertem Quellcode oder der Ausführung von Zwischencode auf einer virtuellen Maschine verfügbar sind.
-Der Frage, ob sich dieser Kompromiss lohnt, wird in dieser Arbeit anhand konkreter Rechenzeiten diskutiert.
+Die Frage, ob sich dieser Kompromiss lohnt, wird in dieser Arbeit anhand konkreter Rechenzeiten diskutiert.
 
 Dabei werden zunächst die allgemeinen Vor- und Nachteile der verschiedenen Ausführungsmodelle angeführt und versucht ein gemeinsamer Nenner zu finden, der als Grundlage für den Vergleich der Modelle dienen soll.
 Als Vertreter der Ausführungsmodelle werden Haskell, Java und Python gewählt.
 Quellcode in Haskell wird zu nativen Maschineninstruktionen kompiliert, während Quellcode in Java zu einem speziellen Zwischencode kompiliert wird, der für die ``Java Virtual Machine'' optimiert ist.
 Python kann Quellcode mit Hilfe eines Interpreters in unveränderter Form ausführen.
 Als Grundlage für einen Vergleich bietet sich die Berechnung der Fibonacci-Zahlen an.
-Die benötigte Rechenzeit zum bestimmen der Fibonacci-Zahlen wird in dieser Arbeit auf zwei Arten bestimmt.
+Die benötigte Rechenzeit zum Berechnen der Fibonacci-Zahlen wird in dieser Arbeit auf zwei Arten bestimmt.
 Es wird nicht nur die bloße Rechenzeit der Funktionen gemessen, sondern auch die Zeit, die für das Starten, Laden und Einrichten der Laufzeitumgebung benötigt wird, da diese Faktoren zusätzlich einen Einfluss auf die Laufzeit einer Berechnung hat.
 
 
@@ -145,10 +145,10 @@ Durch diese Analyseschritte ist es auch möglich, Programmierfehler vorab zu erk
 Als Nachteil bei diesem Modell muss jedoch der verhältnismäßig hohe Aufwand bei der Erzeugung des Maschinencodes beachtet werden.
 Ein Compiler muss für jede Maschinenarchitektur angepasst werden, um die gegebenen Ressourcen und maschinenspezifischen Prozessoranweisungen auch nutzen zu können.
 Ein anderer Nachteil wird bei der Softwareentwicklung deutlich.
-Änderungen führen immer einen neuen Kompiliervorgang mit sich, wodurch die Entwicklung verlangsamt wird.
+Änderungen bringen immer einen neuen Kompiliervorgang mit sich, wodurch die Entwicklung verlangsamt wird.
 Zudem ist es schwerer, Fehler während der Laufzeit ausfindig zu machen, da nur Maschinencode vorliegt, der keine der ursprünglichen Bezeichner enthält und dessen Struktur sehr unterschiedlich zum Quellcode sein kann.
 Durch den geringen Abstraktionsgrad des Maschinencodes muss häufig auf höhere Sprachfeatures verzichtet werden.\cite{quora_pros_and_cons_compiled_languages}
-Beispielsweise wird die Introspektion ohne eine Laufzeitumgebung nur dadurch möglich, dass zu allen Instanzen bereits zur Kompilierzeit Typinformationen abgelegt werden.\cite{reflexive_programmiersprachen}
+Beispielsweise wird die Introspektion, also der Zugriff auf eigene, interne Strukturen wie das Abfragen von Klassen einer Instanz zur Laufzeit, ohne eine Laufzeitumgebung nur dadurch möglich, dass zu allen Instanzen bereits zur Kompilierzeit Typinformationen abgelegt werden.\cite{reflexive_programmiersprachen}
 In C++ können für diesen Zweck Präprozessoranweisungen verwendet werden, mit deren Hilfe der Programmierer im Quellcode die benötigten Zusatzinformationen über Typen und Namen der Instanzvariablen selbst in entsprechende Strukturen eintragen kann.
 
 \subsection{Interpretierter Quellcode}
@@ -172,7 +172,7 @@ Diese können zwar durch Just-in-time-Kompilierung teilweise zur Laufzeit nachge
 
 \subsection{Virtuelle Maschinen und spezialisierter Zwischencode}
 
-Das letzte Ausführungsmodell ist die Ausführung von Zwischencode durch eine virtuelle Maschinen.
+Das letzte Ausführungsmodell ist die Ausführung von Zwischencode durch eine virtuelle Maschine.
 Dieses Modell wird von Programmiersprachen wie Java, C\# oder Erlang verwendet.
 
 In diesem Modell wird ein Programm aus einer Quellsprache nicht in eine maschinennahe Zielsprache kompiliert, sondern in einen spezialisierten Zwischencode, welcher von einer virtuellen Maschine ausgeführt wird und häufig Bytecode genannt wird.
@@ -213,7 +213,8 @@ Zudem verfügt Haskell über eine automatische Speicherverwaltung, welche die Au
 Der Algorithmus zur Speicherverwaltung ist jedoch sehr simpel gehalten und kann sehr effizient arbeiten, da Haskell nur unveränderliche Datentypen unterstützt.
 
 Da Haskell eine kompilierte Sprache ist, die für das Auswerten von mathematischen Operationen optimiert ist, wird der kompilierte Programmcode erwartungsgemäß wenig Rechenzeit benötigen.
-Jedoch wird in Haskell jeder Ausdruck verzögert ausgewertet, was zwar zur Formulierung mathematischer Ausdrücke dienlich ist, jedoch auch zusätzlichen Rechenaufwand einführt, was die Rechenzeit negativ beeinflussen kann.
+In Haskell  wird jeder Ausdruck verzögert ausgewertet, wodurch es beispielsweise möglich ist, unendliche Datenstrukturen zu generieren und mathematische Ausdrücke sehr elegant auszudrücken.
+Diese Art der Auswertung führt dabei aber zu zusätzlichem Rechenaufwand, was die Rechenzeit negativ beeinflussen kann.
 
 
 \subsection{Java}
@@ -225,7 +226,7 @@ Dieser Bytecode kann dann auf jeder beliebigen Plattform ausgeführt werden, sol
 Java verfügt über eine breite Spanne an primitiven Datentypen, die verwendet werden, um Zahlen darzustellen.
 Für Ganzzahlen gibt es Datentypen deren Größe von 8-Bit bis hin zu 64-Bit reicht.
 Kommazahlen werden als Gleitkommazahlen mit einer Größe von 32 oder 64-Bit dargestellt.
-Für die Speicherverwaltung besitzt die JVM eine ganze Reihe an verschiedener Algorithmen, die stetig weiterentwickelt werden und dem Verwendungszweck angepasst werden können.\cite{java_papers_garbage_collectors}
+Für die Speicherverwaltung besitzt die JVM eine ganze Reihe an verschiedenen Algorithmen, die stetig weiterentwickelt werden und dem Verwendungszweck angepasst werden können.\cite{java_papers_garbage_collectors}
 Standardmäßig wird die Speicherverwaltung in einem parallelen Thread ausgeführt, sodass der Programmfluss nicht unterbrochen werden muss.
 
 Obwohl Javas Zwischencode zunächst nicht direkt in Maschinencode übersetzt vorliegt, benötigt auf der JVM ausgeführter Code nur geringe Rechenzeit, da die virtuelle Maschine ständig optimiert wird.
@@ -239,7 +240,7 @@ In Python geschriebener Quellcode liegt direkt ohne weitere Analyse- oder Kompil
 
 Häufige Anwendungen für Python liegen im Bereich der Wissenschaft und Datenanalyse.
 Zur Darstellung von ganzen Zahlen besitzt Python einen Zahlentypen, der ohne Einschränkung der Reichweite Zahlen speichern und verarbeiten kann.
-Da solch unbegrenzte Zahlentypen komplexe Berechnungen für Rechenoperationen benötigen ist dieser Zahlentyp für die Reichweite von 64-Bit optimiert, sodass mit Zahlen, die als eine 64-Bit Ganzzahl dargestellt werden können, auch als solche behandelt werden, wodurch die benötigte Rechenzeit in diesen Zahlenräumen verringert wird.\cite{github_python_long}
+Da solche unbegrenzte Zahlentypen komplexe Berechnungen für Rechenoperationen benötigen, ist dieser Zahlentyp für die Reichweite von 64-Bit optimiert, sodass Zahlen, die als eine 64-Bit Ganzzahl dargestellt werden können, auch als solche behandelt werden, wodurch die benötigte Rechenzeit in diesen Zahlenräumen verringert wird.\cite{github_python_long}
 Kommazahlen werden als 64-Bit Gleitkommazahlen dargestellt.
 
 Die Speicherverwaltung in Python basiert auf einem Referenzzähler, welcher Zyklen erkennen muss, um nicht mehr benötigte Instanzen erkennen zu können.
@@ -376,6 +377,7 @@ Wie zuvor auch wird die Definition mit Abfrage und rekursivem Aufruf direkt übe
 Eine Angabe von Typen ist in Python nicht nötig, da diese zur Laufzeit bestimmt werden.
 
 Aus selbem Grund wie in Java wird auch hier keine \texttt{if}-Anweisung verwendet zur Auswertung der Funktionsfälle.
+Stattdessen wird der spezielle ternäre \texttt{if}-Ausdruck verwendet.
 
 \begin{figure}[h]
   \centering
@@ -458,7 +460,7 @@ Dies beweist, dass konstante Geschwindigkeitsunterschiede beim Ausführen der Re
 
 \subsection{Ergebnisse des Benchmarks der eigenständigen Programme}
 
-Die tatsächliche Laufzeit eines Programms hängt jedoch nicht alleine von der Zeit ab, die für das Ausführen der einzelnen Funktionen benötigt wird.
+Die tatsächliche Laufzeit eines Programms hängt nicht alleine von der Zeit ab, die für das Ausführen der einzelnen Funktionen benötigt wird.
 Weitere Faktoren, welche die Laufzeit bestimmen, sind das Laden des Programms, das Einrichten der Laufzeitumgebung und eventuelle Prüfungen sowie Optimierungen des ausgeführten Codes.
 
 Um den Einfluss dieser anderen Faktoren zu bestimmen, werden die Funktionen aus den vorherigen Kapiteln in ein eigenständiges Programm verpackt, welches eine ganze Zahl als Programmparameter akzeptiert und diese als Argument für den Aufruf der Funktion $fib$ verwendet wird.
@@ -502,7 +504,7 @@ Die benötigte Rechenzeit wird dabei erst ab Eingabewerten von $n \ge 33$ so gro
 Auf einer exponentiellen Skala zeigt der Verlauf der von dem Java-Code benötigten Rechenzeiten
 ein interessantes Verhalten.
 Für Eingabewerte von $n = 20$ bis $n = 23$ ist ein leichter, kontinuierlicher Anstieg zu erkennen.
-Ab $n = 24$ jedoch, ist die benötigte Rechenzeit wieder geringer und beginnt von dort an erneut zunehmend anzusteigen.
+Ab $n = 24$ jedoch ist die benötigte Rechenzeit wieder geringer und beginnt von dort an erneut zunehmend anzusteigen.
 Grund für dieses Verhalten ist, dass statistische Optimierungen der JVM erst ab bestimmten Aufrufszahlen ausgeführt werden.
 Wird eine Funktion sehr häufig aufgerufen, so kann der Just-in-time Mechanismus der JVM Aufrufe und deren Ergebnis zwischenspeichern.
 Da $fib$ mit kleinzahligen Argumenten sehr häufig aufgerufen wird und die Funktion keine Seiteneffekte enthält, wird hier von der JVM das Ergebnis des Aufrufs zwischengespeichert, um eine erneute Berechnung zu vermeiden.
@@ -523,7 +525,7 @@ Hierbei bewirkt der höhere Abstraktionsgrad von Java, dass es mehr Möglichkeit
 
 Folglich bestimmt nicht die Wahl des Ausführungsmodells beim Implementieren einer Berechnung über die benötigte Rechenzeit.
 Vielmehr sollte der Fokus darauf gelegt werden, dass die Quellsprache eine weite Reihe an Optimierungen unterstützt, welche die benötigte Rechenzeit verbessern.
-Die positiven Auswirkungen von Optimierungen übersteigen dabei die kosten eines höheren Abstraktionsgrades.
+Die positiven Auswirkungen von Optimierungen übersteigen dabei die Kosten eines höheren Abstraktionsgrades.
 Gerade wenn Berechnungen komplexer werden und über einen längeren Zeitraum laufen, kann die Zeit, die zum Initialisieren der Laufzeitumgebung benötigt wird, vernachlässigt werden.
 
 
