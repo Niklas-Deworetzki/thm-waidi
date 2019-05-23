@@ -83,14 +83,14 @@
            {False}{{{\color{alabasterPink}False}}}5
 }
 \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
-	\do\-\do\\/}
+	\do\-\do\/}
 
 \begin{document}
 
 \titlehead{\includegraphics[width=\textwidth]{src/Logo_THM_CG_FB06.png}}
 
 %% Titelseite
-\subject{Manusskript}
+\subject{Manuskript}
 \title{Rechenzeitvergleich verschiedener Ausführungsmodelle}
 \subtitle{Kurs \enquote{Wissenschaftliches Arbeiten in der Informatik}}
 \author{Niklas Deworetzki}
@@ -104,7 +104,7 @@ Diese Arbeit befasst sich mit den Unterschieden in der Rechenzeit herkömmlicher
 Dabei werden die Programmiersprachen Haskell, Java und Python verwendet, die stellvertretend für die drei verschiedenen Ausführungsmodelle ``kompilierter Maschinencode'', ``spezifischer Zwischencode für eine virtuelle Maschine'' und ``interpretierter Quellcode'' stehen.
 Der Fokus liegt dabei auf der Rechenzeit, die für das Ausführen der Berechnungen oder eines ganzen Programms benötigt wird.
 Vor- und Nachteile der jeweiligen Sprachen und benötigten Sprachtransformationen werden nur für die Interpretation der Messwerte herangezogen.
-Ergebnis dieser Arbeit ist, dass kein Ausführungsmodell generell als überlegen bezeichnet werden kann und je nach Anspruch der Berechnungen die Vor- und Nachteile eines Ausführungsmodells abegwägt werden müssen.                                                             
+Ergebnis dieser Arbeit ist, dass kein Ausführungsmodell generell als überlegen bezeichnet werden kann und je nach Anspruch der Berechnungen die Vor- und Nachteile eines Ausführungsmodells abgewägt werden müssen.                                                             
 
 \newpage
 
@@ -237,7 +237,7 @@ Zudem verfügt die JVM über einen komplexen Just-in-time Kompiliermechanismus, 
 
 \subsection{Python}
 
-Python\cite{python_language} ist eine universelle Programmierspache, welche interpretiert ausgeführt wird und durch ein hohes Abstraktionslevel den Anspruch hat, sauberen und gut lesbaren Code zu fördern.
+Python\cite{python_language} ist eine universelle Programmiersprache, welche interpretiert ausgeführt wird und durch ein hohes Abstraktionslevel den Anspruch hat, sauberen und gut lesbaren Code zu fördern.
 In Python geschriebener Quellcode liegt direkt ohne weitere Analyse- oder Kompilierschritte in vom Interpreter ausführbarer Form vor.
 
 Häufige Anwendungen für Python liegen im Bereich der Wissenschaft und Datenanalyse.
@@ -319,7 +319,7 @@ Diese Umformung verändert die Laufzeitkomplexität der Funktion nicht, da sowoh
 In der Funktion treten nur Ganzzahlen und simple Addition beziehungsweise Subtraktion zur Berechnung auf, welche direkt in die einzelnen Programmiersprachen übertragen werden können.
 
 Zu zeigen ist nur noch, dass diese Funktion den Wertebereich einer 64-Bit Zahl nicht überschreitet, wodurch Unterschiede in den gewählten Programmiersprachen auftreten würden.
-Die erste Zahl, die diesen Bereich überschreitet ist $fib_{93} = fib(93) = 12.200.160.415.121.876.738$.
+Die erste Zahl, die diesen Bereich überschreitet, ist $fib_{93} = fib(93) = 12.200.160.415.121.876.738$.
 Aufgrund der Laufzeitkomplexität der Funktion würde die Berechnung dieses Wertes einige Jahre in Anspruch nehmen.\cite{aud_landau}
 Daher kann angenommen werden, dass im Rahmen dieser Arbeit die Einschränkungen der Ganzzahlen nicht überschritten wird. 
 
@@ -411,7 +411,7 @@ Da die Ausführung eines Programms nicht immer linear abläuft\cite{ibm_anatomy_
 In Haskell muss berücksichtigt werden, dass durch die verzögerte Auswertung das Ergebnis einer Berechnung erzwungen werden muss, da sonst nur ein Verweis auf eine noch auszuführende Berechnung angelegt wird und das Programm sich sofort beendet.
 Hier bietet Criterion\cite{criterion} die Möglichkeit, die Auswertung von Ausdrücken in die Normalform\cite{haskell_whnf} zu erzwingen.
 
-Python besitzt eine gewissen Anlaufzeit, in welcher der Interpreter gestartet wird.
+Python besitzt eine gewisse Anlaufzeit, in welcher der Interpreter gestartet wird.
 Zudem wird ein Codeblock beim ersten Ausführen zunächst in den Hauptspeicher geladen und auf syntaktische und semantische Korrektheit überprüft, bevor er tatsächlich ausgeführt werden kann.
 Pytest-Benchmark\cite{pytest_benchmark} eignet sich hier, um das sogenannte Aufwärmen der getesteten Funktionen zu übernehmen und die Zeiten zu messen.
 
@@ -443,7 +443,7 @@ Da die benötigte Rechenzeit für die einzelnen Berechnungen sehr gering ist, m�
     \caption{Logarithmische Skala}
     \label{fig:micro-log}
   \end{subfigure}
-  \caption{Rechenzeiten von $fib(n)$ im Mikorbenchmark}
+  \caption{Rechenzeiten von $fib(n)$ im Mikrobenchmark}
   \label{fig:micro}
 \end{figure}
 
